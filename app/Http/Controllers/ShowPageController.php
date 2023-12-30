@@ -45,6 +45,9 @@ class ShowPageController extends Controller
             }
 
 
+            dd($permalink->type->template());
+
+
             return view($permalink->type->template(), [
                 'page' => $page,
                 'post' => $page,
