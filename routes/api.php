@@ -3,6 +3,7 @@
 use App\Events\BlogCreatedEvent;
 use Appsorigin\Plots\Models\Blog;
   use Appsorigin\Plots\Models\Project;
+  use Appsorigin\Plots\Models\ProjectLocation;
   use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
@@ -23,8 +24,23 @@ Route::get('posts', function () {
 
             foreach ($data as $pro) {
 
+                $url = ((array)$pro->_embedded)['wp:featuredmedia'][0]->source_url;
 
-                dd($pro);
+                $contents = file_get_contents($url);
+                $name = substr($url, strrpos($url, '/') + 1);
+                Storage::put("properties". DIRECTORY_SEPARATOR. $name, $contents);
+
+
+                foreach ($pro->terms->location as $location) {
+
+                    \Appsorigin\Plots\Models\Location::updateOrCreate([
+                       'name' => $location
+                    ],[
+                        'slug' => str($location)->lower()->slug()->value()
+                    ]);
+
+                }
+
 
                 $projectData = [
                     'use_page_builder' => false,
@@ -32,11 +48,11 @@ Route::get('posts', function () {
                     'body' => $pro->content->rendered,
                     'status' => $pro->terms->status[0],
                     'price' => $pro->custom_fields->price,
-                    //   'meta_title' => $data['meta_title'],
+                    'meta_title' => $pro->title->rendered,
                     //  'meta_description' => $data['meta_description'],
                     //  'location' => $data['location'],
                     //  'purpose' => $data['purpose'],
-                    //  'featured_image' => $data['featured_image'],
+                      'featured_image' => "properties". DIRECTORY_SEPARATOR. $name,
                     'amenities' => $pro->custom_fields->features,
                 ];
 
@@ -55,6 +71,30 @@ Route::get('posts', function () {
 
 
                 }
+
+                /** @var Project $project */
+                $project = Project::create($projectData);
+
+
+
+                $project->link()->create([
+                    'slug' => $pro->slug,
+                    'type' => 'project',
+                ]);
+
+                $project->setCreatedAt(\Carbon\Carbon::parse($pro->modified));
+
+                $project->saveQuietly();
+
+                foreach (\Appsorigin\Plots\Models\Location::query()->whereIn('name', $pro->terms->location)->pluck('id') as $locationId) {
+
+                    ProjectLocation::create([
+                        'location_id' => $locationId,
+                        'project_id' => $project->id
+                    ]);
+                }
+
+                event(new BlogCreatedEvent($project));
 
             }
 
