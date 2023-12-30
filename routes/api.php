@@ -112,7 +112,7 @@ Route::get('posts', function () {
 
 
 
-
+dd('donw');
 
         $blogs = \Appsorigin\Blog\Models\Blog::query()->latest('id')->cursor();
 
@@ -125,7 +125,7 @@ Route::get('posts', function () {
 
             $result = $client->completions()->create([
                 'model' => 'text-davinci-003',
-                'prompt' => 'correct errors and typos '. $blog->body,
+                'prompt' => 'correct errors and typos and the gramma without changing the wording'. $blog->body,
             ]);
 
             $blog->body = $result['choices'][0]['text'];
