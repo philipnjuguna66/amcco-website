@@ -76,6 +76,7 @@ trait HeroImageSectionConcern
                 TextInput::make('columns')->numeric()->default(2)->maxValue(4)->reactive(),
                 Checkbox::make('bg_white'),
 
+
                 Grid::make(1)->schema(function ($get): array {
 
                     $sections = [];
@@ -119,6 +120,7 @@ trait HeroImageSectionConcern
                                                 ]),
                                             Block::make('text_area')
                                                 ->schema([
+                                                    Checkbox::make('has_border_bottom'),
                                                     RichEditor::make('body'),
                                                 ]),
                                            // $this->masonaryBlocks(),
