@@ -12,7 +12,7 @@ class SimilarProject extends Component
 {
     use WithPagination;
 
-    public ?Project $project;
+    public ?Project $project = null;
 
     public $take = 3;
 
