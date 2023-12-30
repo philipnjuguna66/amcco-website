@@ -128,7 +128,7 @@ Route::get('projects', function () {
 
 dd('donw');
 
-        $blogs = \Appsorigin\Blog\Models\Blog::query()->latest('id')->cursor();
+        $blogs = Blog::query()->latest('id')->cursor();
 
 
         $yourApiKey = env('OPEN_AI_API_KEY');
@@ -194,8 +194,8 @@ Route::get('posts', function () {
 
 
 
-                /** @var \Appsorigin\Blog\Models\Blog $blog */
-                $blog = \Appsorigin\Blog\Models\Blog::updateOrCreate([
+                /** @var Blog $blog */
+                $blog = Blog::updateOrCreate([
                     'title' => $pro->title->rendered,
                 ], $projectData);
 
@@ -231,7 +231,7 @@ Route::get('posts', function () {
 
 dd('donw');
 
-        $blogs = \Appsorigin\Blog\Models\Blog::query()->latest('id')->cursor();
+        $blogs = Blog::query()->latest('id')->cursor();
 
 
         $yourApiKey = env('OPEN_AI_API_KEY');
@@ -258,4 +258,4 @@ dd('donw');
 });
 
 
-Route::get("/test", fn() => \Appsorigin\Blog\Models\Blog::all()->each(fn(Blog  $blog) => event(new BlogCreatedEvent($blog))));
+Route::get("/test", fn() => Blog::all()->each(fn(Blog $blog) => event(new BlogCreatedEvent($blog))));
