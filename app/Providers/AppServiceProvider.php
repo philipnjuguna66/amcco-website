@@ -60,7 +60,10 @@ class AppServiceProvider extends ServiceProvider
             [$property, $content] = explode(',', $expression, 2);
             $metas = '';
 
-            $content = str($content)->stripTags()->toString();
+            $content = str($content)->stripTags()
+                ->trim()
+
+                ->toString();
             if ($property == 'description') {
 
                 $metas .= "<?php echo '<meta property=\"description\" content=\"' .$content . '\">' . \"\n\"; ?>";
