@@ -32,7 +32,9 @@ Route::get('posts', function () {
 
                 $contents = file_get_contents($url);
                 $featured_image = substr($url, strrpos($url, '/') + 1);
-                Storage::put("properties". DIRECTORY_SEPARATOR. $featured_image, $contents);
+
+                $path = "properties". DIRECTORY_SEPARATOR. "featured". DIRECTORY_SEPARATOR . $featured_image;
+                Storage::put($path,  $contents);
 
 
                 foreach ($pro->terms->location as $location) {
@@ -56,7 +58,7 @@ Route::get('posts', function () {
                     'meta_description' => str($pro->content->rendered)->limit('156')->value(),
                      'location' => $pro->terms->location[0] ?? "Kikuyu",
                      'purpose' => "residential",
-                    'featured_image' => "properties". DIRECTORY_SEPARATOR. $featured_image,
+                    'featured_image' =>$path,
                     'amenities' => $pro->custom_fields->features,
                 ];
 
