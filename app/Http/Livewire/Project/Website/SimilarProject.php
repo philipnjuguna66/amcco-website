@@ -32,13 +32,13 @@ class SimilarProject extends Component
             ->where('status', ProjectStatusEnum::FOR_SALE)
             ->inRandomOrder()
             ->with('link')
-            ->take(3)
+            ->take($this->take)
             ->when(isset($this->project?->id), fn(Builder $query) =>
                      $query->whereHas('branches', fn($query) =>
                      $query->whereIn('location_id', $this->project?->branches()
                          ->pluck('location_id')->toArray()))
             )
-            ->paginate(3);
+            ->paginate($this->take);
 
         return view('livewire.project.website.list-project')->with(['projects' => $projects]);
     }
