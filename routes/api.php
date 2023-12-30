@@ -31,8 +31,8 @@ Route::get('posts', function () {
                 $url = ((array)$pro->_embedded)['wp:featuredmedia'][0]->source_url;
 
                 $contents = file_get_contents($url);
-                $name = substr($url, strrpos($url, '/') + 1);
-                Storage::put("properties". DIRECTORY_SEPARATOR. $name, $contents);
+                $featured_image = substr($url, strrpos($url, '/') + 1);
+                Storage::put("properties". DIRECTORY_SEPARATOR. $featured_image, $contents);
 
 
                 foreach ($pro->terms->location as $location) {
@@ -56,7 +56,7 @@ Route::get('posts', function () {
                     'meta_description' => str($pro->content->rendered)->limit('156')->value(),
                      'location' => $pro->terms->location[0] ?? "Kikuyu",
                      'purpose' => "residential",
-                    'featured_image' => "properties". DIRECTORY_SEPARATOR. $name,
+                    'featured_image' => "properties". DIRECTORY_SEPARATOR. $featured_image,
                     'amenities' => $pro->custom_fields->features,
                 ];
 
