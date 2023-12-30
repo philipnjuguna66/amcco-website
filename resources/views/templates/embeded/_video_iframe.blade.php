@@ -11,7 +11,7 @@
 
 <iframe
     src="{{ $videoUri }}?rel=0&&mute=0&controls=0&autoplay={{ isset($autoplay) ?? 0 }}"
-    class="w-full aspect-video"
+    class="w-full aspect-video py-4"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     allowfullscreen>
 
