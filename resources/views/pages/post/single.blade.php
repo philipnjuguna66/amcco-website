@@ -34,7 +34,7 @@
 
                 </article>
             </div>
-            <div class="col-span-1">
+            <div class="md:col-span-1 md:mx-2">
 
                 <div class="">
                     <livewire:contact.book-site-visit/>
