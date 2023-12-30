@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
 
             $table->string('name')->fulltext();
+            $table->string('cta')->nullable()->fulltext();
             $table->string('status')->default('for sale');
             $table->string('price');
             $table->text('body')->nullable();
@@ -26,6 +27,8 @@ return new class extends Migration
             $table->text('map')->nullable();
             $table->string('mutation')->nullable();
             $table->string('meta_description');
+            $table->mediumText('location')->fulltext();
+            $table->string('purpose')->fulltext();
             $table->timestamps();
         });
     }
