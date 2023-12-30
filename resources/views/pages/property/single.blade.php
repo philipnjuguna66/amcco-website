@@ -74,7 +74,7 @@
 
                     </div>
 
-                    <div class="md:col-span-3 fixed z-30 left-0 right-0">
+                    <div class="md:col-span-3 overflow-y-scroll stick  z-30 left-0 right-0">
 
                         <livewire:contact.book-site-visit :page="$page"/>
 
