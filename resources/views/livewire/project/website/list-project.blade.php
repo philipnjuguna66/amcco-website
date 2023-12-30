@@ -7,7 +7,7 @@
                     <img
                         src="{{ \Illuminate\Support\Facades\Storage::url($project->featured_image) }}"
                         alt="{{ $project->name }}"
-                        class="aspect-[16/9] w-full object-cover sm:aspect-[2/1] lg:aspect-[3/2]">
+                        class="w-full object-cover">
                     <div class="absolute inset-0  ring-1 ring-inset ring-gray-900/10"></div>
                 </div>
                 <div class="max-w-xl py-2 ">
