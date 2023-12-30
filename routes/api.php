@@ -54,8 +54,8 @@ Route::get('posts', function () {
                     'price' => $pro->custom_fields->price,
                     'meta_title' => $pro->title->rendered,
                     'meta_description' => str($pro->content->rendered)->limit('156')->value(),
-                    //  'location' => $data['location'],
-                    //  'purpose' => $data['purpose'],
+                     'location' => $pro->terms->location[0],
+                     'purpose' => "residential",
                     'featured_image' => "properties". DIRECTORY_SEPARATOR. $name,
                     'amenities' => $pro->custom_fields->features,
                 ];
