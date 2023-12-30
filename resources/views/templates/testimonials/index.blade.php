@@ -25,7 +25,7 @@
                         <div class="flex items-center mb-4">
 
                             @if(isset($review['profile_photo_url']))
-                                <img class="w-10 h-10 me-4 rounded-full" src="{{ $review['profile_photo_url'] }}" alt="{{ $review['author_name'] }}">
+                                <img class="w-10 h-10 me-4 rounded-full" loading="lazy" src="{{ $review['profile_photo_url'] }}" alt="{{ $review['author_name'] }}">
                             @endif
                             <div class="font-medium dark:text-white">
                                 <p>{{ $review['author_name'] }}
