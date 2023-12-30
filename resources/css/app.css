@@ -24,7 +24,6 @@
         @apply text-primary-600  font-bold uppercase font-extrabold text-2xl lg:text-3xl
     }
 
-
     strong{
         @apply text-primary-600  font-bold uppercase
     }
