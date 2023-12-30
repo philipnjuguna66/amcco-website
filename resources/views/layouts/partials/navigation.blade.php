@@ -8,7 +8,7 @@
     <div class=" mx-auto w-4/5 lg:max-w-7xl hidden md:block">
         <div class=" py-2 md:py-2 flex  flex-col md:flex-row  md:justify-between">
 
-            <div class="flex flex-col md:flex-row  gap-4 mx-auto max-w-4xl">
+            <div class="flex flex-col md:flex-row  gap-4 ">
 
                 @foreach($header->phones as $phone)
                     <div class="">
