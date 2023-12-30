@@ -24,7 +24,7 @@ Route::get('posts', function () {
             foreach ($data as $pro) {
 
 
-                dd($projectData, $pro);
+                dd($pro);
 
                 $projectData = [
                     'use_page_builder' => false,
