@@ -20,7 +20,7 @@
         @apply text-primary-500  font-bold uppercase
     }
     a{
-        @apply text-secondary-500  font-bold
+        @apply font-bold
     }
 
      strong{
