@@ -11,10 +11,8 @@
     @endpush
 
     <div class="" style="">
-
-
-        <div class="mx-auto md:w-4/5 max-w-7xl	 py-8  md:py-12 px-8">
-            <h1 class="py-12 md:py-4 font-extrabold text-2xl lg:text-4xl text-center uppercase px-8 md:px-0">{{ $page->name }}</h1>
+        <div class="md:mx-auto md:w-4/5 max-w-7xl	 py-4  md:py-8 px-8">
+            <h1 class="font-extrabold text-2xl lg:text-4xl text-center uppercase px-8 md:px-0">{{ $page->name }}</h1>
 
         </div>
     </div>
