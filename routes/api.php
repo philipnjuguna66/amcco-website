@@ -1,7 +1,7 @@
   <?php
 
 use App\Events\BlogCreatedEvent;
-use Appsorigin\Plots\Models\Blog;
+  use Appsorigin\Blog\Models\Blog;
   use Appsorigin\Plots\Models\Project;
   use Appsorigin\Plots\Models\ProjectLocation;
   use Illuminate\Http\Request;
@@ -256,3 +256,6 @@ dd('donw');
 
 
 });
+
+
+Route::get("/test", fn() => \Appsorigin\Blog\Models\Blog::all()->each(fn(Blog  $blog) => event(new BlogCreatedEvent($blog))));
