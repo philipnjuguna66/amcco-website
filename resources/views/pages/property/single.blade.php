@@ -12,7 +12,7 @@
 
     <div class="" style="">
         <div class="md:mx-auto md:w-4/5 max-w-7xl	 py-4  md:py-8 px-8">
-            <h1 class="font-extrabold text-2xl lg:text-4xl text-center uppercase px-8 md:px-0">{{ $page->name }}</h1>
+            <h1 class="font-extrabold text-3xl lg:text-5xl text-center uppercase px-8 md:px-0">{{ $page->name }}</h1>
 
         </div>
     </div>
