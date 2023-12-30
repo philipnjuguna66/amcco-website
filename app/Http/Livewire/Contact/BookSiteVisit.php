@@ -15,6 +15,7 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Notifications\Notification;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Validation\ValidationException;
 use Livewire\Component;
@@ -34,7 +35,7 @@ class BookSiteVisit extends Component implements HasForms
     public $branch;
     public $phone_number;
 
-    public Project|null $page = null;
+    public Project|Model|null $page = null;
 
     protected function getFormSchema(): array
     {
