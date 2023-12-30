@@ -75,7 +75,6 @@ Route::get('posts', function () {
 
 
                 }
-                dd($projectData);
 
                 /** @var Project $project */
                 $project = Project::create($projectData);
