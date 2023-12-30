@@ -74,7 +74,7 @@
 
                     </div>
 
-                    <div class="md:col-span-3">
+                    <div class="md:col-span-3 sticky z-50 left-0 right-0">
 
                         <livewire:contact.book-site-visit :page="$page"/>
 
