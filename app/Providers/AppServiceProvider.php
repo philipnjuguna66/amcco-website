@@ -66,13 +66,13 @@ class AppServiceProvider extends ServiceProvider
                 ->toString();
             if ($property == 'description') {
 
-                $metas .= "<?php echo '<meta property=\"description\" content=\"' .$content . '\">' . \"\n\"; ?>";
+                $metas .= "<?php echo '<meta  class=\"hidden\"  property=\"description\" content=\"' .$content . '\">' . \"\n\"; ?>";
 
             }
 
-            $metas .= "<?php echo '<meta property=\"og:' . $property . '\" content=\"' . $content . '\">' . \"\n\"; ?>";
-            $metas .= "<?php echo '<meta property=\"twitter:' . $property . '\" content=\"' . $content . '\">' . \"\n\"; ?>";
-            $metas .= "<?php echo '<meta property=\"article:' . $property . '\" content=\"' . $content . '\">' . \"\n\"; ?>";
+            $metas .= "<?php echo '<meta class=\"hidden\"  property=\"og:' . $property . '\" content=\"' . $content . '\">' . \"\n\"; ?>";
+            $metas .= "<?php echo '<meta class=\"hidden\"  property=\"twitter:' . $property . '\" content=\"' . $content . '\">' . \"\n\"; ?>";
+            $metas .= "<?php echo '<meta  class=\"hidden\" property=\"article:' . $property . '\" content=\"' . $content . '\">' . \"\n\"; ?>";
 
             return $metas;
         });
