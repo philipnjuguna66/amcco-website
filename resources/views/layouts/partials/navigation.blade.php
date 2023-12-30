@@ -24,10 +24,8 @@
                     </div>
                 @endforeach
 
-
-
             </div>
-           <div class="hidden ">
+           <div class="hidden md:block ">
                 <div class="text-white">
                     <div class="flex flex-row gap-4">
                         <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
