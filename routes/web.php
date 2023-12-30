@@ -25,8 +25,6 @@ use Illuminate\Support\Facades\Cache;
 
 Route::get('/', function () {
 
-
-
     if (!Cache::has("page.1")) {
         return redirect('/');
     }

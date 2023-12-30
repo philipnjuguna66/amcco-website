@@ -109,7 +109,9 @@ trait HeroImageSectionConcern
                                                 ]),
                                             Block::make('sliders')
                                                 ->schema([
-                                                    FileUpload::make('image')->preserveFilenames()
+                                                    FileUpload::make('images')
+                                                        ->multiple()
+                                                        ->preserveFilenames()
                                                 ]),
                                             Block::make('booking_form')
                                                 ->schema([
