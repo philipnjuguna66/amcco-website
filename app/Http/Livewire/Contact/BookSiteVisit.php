@@ -50,19 +50,6 @@ class BookSiteVisit extends Component implements HasForms
                         ->maxLength(10)
                         ->tel()
                         ->numeric(),
-                    Select::make('branch')
-                        ->label('Location')
-                        ->placeholder("Location Interested")
-                        ->options([
-                            'kangundo_road' => "Along Kangundo Road",
-                            'thika_road' => "Along Thika Road",
-                            'mombasa_road' => "Along Mombasa Road",
-
-                        ])
-                        ->searchable()
-                        ->preload()
-                        ->required(fn(): bool => !filled($this->page))
-                        ->hidden(fn(): bool => filled($this->page))
                 ])->inlineLabel(),
         ];
     }
