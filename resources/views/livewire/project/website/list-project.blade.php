@@ -8,7 +8,7 @@
                         src="{{ \Illuminate\Support\Facades\Storage::url($project->featured_image) }}"
                         alt="{{ $project->name }}"
                         class="w-full object-cover">
-                    <div class="absolute inset-0  ring-1 ring-inset ring-gray-900/10"></div>
+
                 </div>
                 <div class="max-w-xl py-2 ">
                     <div class="group relative py-4 px-4">

@@ -4,8 +4,7 @@
             <article class="flex flex-col items-start justify-between shadow-2xl shadow-gray-900/50 rounded-xl">
                 <div class="relative w-full">
                     <img src="{{ \Illuminate\Support\Facades\Storage::url($blog->featured_image) }}" alt="{{ $blog->title }}"
-                         class=" w-full  bg-gray-100 object-cover ">
-                    <div class="absolute inset-0  ring-1 ring-inset ring-gray-900/10"></div>
+                         class=" w-full object-cover ">
                 </div>
                 <div class="max-w-xl px-4">
                     <div class="group relative py-4">
