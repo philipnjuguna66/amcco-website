@@ -18,7 +18,7 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+        <div class="md:mx-auto md:w-4/5 md:max-w-4xl ">
             <div class="col-span-2 ">
                 <img src="{{ \Illuminate\Support\Facades\Storage::url($post?->featured_image) }}"
                      class="w-[800px] h-[500px] rounded-md object-contain aspect-ratio"
