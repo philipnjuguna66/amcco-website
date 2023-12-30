@@ -22,7 +22,7 @@ trait InteractsWithPermerlinks
         return str($this->meta_title)->headline()->value();
     }
 
-    public function getMetaDescription(): Attribute
+    public function metaDescription(): Attribute
     {
         return  new Attribute(
             get: fn($value) : string => str($this->meta_description)
