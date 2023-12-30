@@ -13,8 +13,8 @@
 
     <section class=" py-4 md:mx-auto md:max-w-7xl md:w-4/5 md:px-8 px-2 prose  lg:prose-md ">
 
-        <div class="mt-4">
-            <div class="bg-transparent px-6 pt-4 sm:pt-12 lg:px-8 flex justify-center max-w-2xl">
+        <div class="">
+            <div class="bg-transparent px-6 pt-4 sm:pt-12 lg:px-8 flex justify-center max-w-5xl">
                 <h1 class="font-extrabold text-3xl lg:text-5xl text-center">{{ $post->title }}</h1>
             </div>
         </div>
