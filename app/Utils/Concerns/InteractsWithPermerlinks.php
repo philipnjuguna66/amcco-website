@@ -2,6 +2,8 @@
 
 namespace App\Utils\Concerns;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
+
 trait InteractsWithPermerlinks
 {
 
@@ -20,8 +22,15 @@ trait InteractsWithPermerlinks
         return str($this->meta_title)->headline()->value();
     }
 
-    public function getMetaDescription(): string
+    public function getMetaDescription(): Attribute
     {
-        return str($this->meta_description)->ucfirst()->value();
+        return  new Attribute(
+            get: fn($value) : string => str($this->meta_description)
+                ->stripTags()
+                ->replace('<a>','')
+                ->replace('</a>','')
+                ->trim()
+                ->toString()
+        );
     }
 }
