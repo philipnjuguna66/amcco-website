@@ -19,11 +19,11 @@
         </div>
     </div>
 
-        @if(! $page->use_page_builder)
+    @if(! $page->use_page_builder)
         <div class="bg-white pb-8">
 
 
-            <div class="mx-auto md:w-4/5 max-w-full px-8">
+            <div class="mx-auto md:w-4/5 max-w-7xl px-8">
                 <div class="grid grid-cols-1 md:grid-cols-7 gap-4 py-8">
 
 
@@ -109,7 +109,6 @@
                                     </div>
 
 
-
                                 </div>
 
 
@@ -117,9 +116,9 @@
                         @endif
 
 
-
                         <div class="">
-                            <h3 class="font-semibold text-xl md:text-3xl md:font-extrabold text-center px-2"> Amenities and
+                            <h3 class="font-semibold text-xl md:text-3xl md:font-extrabold text-center px-2"> Amenities
+                                and
                                 Features</h3>
 
                             @if(is_array($page->amenities))
@@ -170,45 +169,43 @@
                     </div>
                 </div>
 
+            </div>
         </div>
-    </div>
-            @else
+    @else
 
-                @foreach($page->extra as $extra)
+        @foreach($page->extra as $extra)
 
-
-                    <div  class="bg-gray-50  @if($extra['extra']['bg_white'] )  bg-white @endif">
-                        <div class="mx-auto md:w-4/5 max-w-full	 py-12 md:mt-20 md:py-16 px-8">
-                           <div class="  grid grid-cols-1 md:grid-cols-{{ $extra['extra']['columns'] }}  gap-x-3 space-y-4 mt-4 py-4">
-                                @foreach($extra['extra']['columns_sections'] as $index => $columns)
-                                    <div class="md:text-justify max-w-7xl">
-                                        @foreach($columns as $column)
-                                                <?php
-                                                $html = match ($column['type'])
-                                                {
-                                                    "header" => view('templates.hero._header', ['heading' => $column['data']['heading'], "subheading" => $column['data']['subheading']])->render(),
-                                                    "video" => view('templates.embeded._video_iframe', ["autoplay" =>  $column['data']['autoplay'] ??  false, 'videoUri' => $column['data']['video_path']])->render(),
-                                                    "image" => view('templates.hero._image', ['image' => $column['data']['image'],'title' => $page->name ])->render(),
-                                                    "booking_form" => view('templates.hero._site')->render(),
-                                                    "text_area" => view('templates.hero._text_area', ['html' => $column['data']['body']])->render(),
-                                                    "slider" => view('templates.hero._slider', ['sliders' => $column['data']['body'],'page' => $page])->render(),
-                                                    "default" => null,
-                                                };
-                                                ?>
-                                            {{ str($html)->toHtmlString() }}
-                                        @endforeach
-                                    </div>
-
+            <div class="bg-gray-50  @if($extra['extra']['bg_white'] )  bg-white @endif">
+                <div class="mx-auto md:w-4/5 max-w-full	 py-12 md:mt-20 md:py-16 px-8">
+                    <div
+                        class="  grid grid-cols-1 md:grid-cols-{{ $extra['extra']['columns'] }}  gap-x-3 space-y-4 mt-4 py-4">
+                        @foreach($extra['extra']['columns_sections'] as $index => $columns)
+                            <div class="md:text-justify max-w-7xl">
+                                @foreach($columns as $column)
+                                        <?php
+                                        $html = match ($column['type']) {
+                                            "header" => view('templates.hero._header', ['heading' => $column['data']['heading'], "subheading" => $column['data']['subheading']])->render(),
+                                            "video" => view('templates.embeded._video_iframe', ["autoplay" => $column['data']['autoplay'] ?? false, 'videoUri' => $column['data']['video_path']])->render(),
+                                            "image" => view('templates.hero._image', ['image' => $column['data']['image'], 'title' => $page->name])->render(),
+                                            "booking_form" => view('templates.hero._site')->render(),
+                                            "text_area" => view('templates.hero._text_area', ['html' => $column['data']['body']])->render(),
+                                            "slider" => view('templates.hero._slider', ['sliders' => $column['data']['body'], 'page' => $page])->render(),
+                                            "default" => null,
+                                        };
+                                        ?>
+                                    {{ str($html)->toHtmlString() }}
                                 @endforeach
-
                             </div>
-                        </div>
+
+                        @endforeach
+
                     </div>
+                </div>
+            </div>
 
-                @endforeach
+        @endforeach
 
-
-            @endif
+    @endif
 
 
 </x-guest-layout>
