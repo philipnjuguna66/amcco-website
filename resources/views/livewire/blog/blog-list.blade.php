@@ -4,7 +4,7 @@
             <article class="flex flex-col items-start justify-between shadow-2xl shadow-gray-900/50 rounded-xl">
                 <div class="relative w-full">
                     <img src="{{ \Illuminate\Support\Facades\Storage::url($blog->featured_image) }}" alt="{{ $blog->title }}"
-                         class="aspect-[16/9] w-full  bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]">
+                         class=" w-full  bg-gray-100 object-cover ">
                     <div class="absolute inset-0  ring-1 ring-inset ring-gray-900/10"></div>
                 </div>
                 <div class="max-w-xl px-4">
