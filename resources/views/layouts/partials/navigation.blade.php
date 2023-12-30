@@ -19,7 +19,7 @@
                                 class="h-5 w-5 shrink-0"
                             />
 
-                            <a href="{{ $phone['link'] }} "> {{ $phone['label'] }} </a>
+                            <a href="{{ $phone['link'] }} " class="text-white"> {{ $phone['label'] }} </a>
                         </div>
                     </div>
                 @endforeach
