@@ -20,7 +20,7 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 px-4 md:px-8prose  lg:prose-md">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 px-4 md:px-8 prose  lg:prose-lg">
 
 
             <div class="col-span-2 md:mx-4 ">
@@ -29,7 +29,7 @@
                      alt="{{ $post?->meta_title }}"
                      loading="lazy"
                 >
-                <article class="prose md:prose-md mt-12 max-w-7xl justify-center align-middle">
+                <article class="md:mt-12 max-w-7xl justify-center align-middle">
 
                     {{ str($post?->body)->toHtmlString() }}
 
