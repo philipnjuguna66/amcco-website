@@ -23,7 +23,7 @@
         <div class="bg-white pb-8 mx-auto md:w-4/5 max-w-7xl	">
 
 
-            <div class="mx-auto md:w-4/5 max-w-7xl px-8">
+            <div class="">
                 <div class="grid grid-cols-1 md:grid-cols-7 gap-4 py-8">
 
 
