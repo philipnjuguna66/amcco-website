@@ -20,7 +20,7 @@
     </div>
 
     @if(! $page->use_page_builder)
-        <div class="bg-white pb-8 mx-auto md:w-4/5 max-w-7xl	">
+        <div class="pb-8 mx-auto md:w-4/5 max-w-7xl	">
 
 
             <div class="">
