@@ -4,8 +4,8 @@ namespace App\Utils\Enums;
 
 enum ProjectStatusEnum: string
 {
-    case FOR_SALE = 'for sale';
+    case FOR_SALE = 'For Sale';
 
-    case SOLD_OUT = 'sold out';
+    case SOLD_OUT = 'Sold Out';
     case DRAFT = 'draft';
 }

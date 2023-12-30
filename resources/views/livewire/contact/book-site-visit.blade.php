@@ -14,7 +14,7 @@
         <div class="flex items-center justify-end mt-4">
 
 
-            <x-button class="ml-4 my-4" >
+            <x-button class="ml-4 my-4 bg-rose-600 hover:bg-teal-600" >
                 <span wire:loading wire:target="bookVisit">
 
                     <svg aria-hidden="true" class="w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
