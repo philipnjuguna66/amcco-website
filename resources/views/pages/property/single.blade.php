@@ -13,14 +13,14 @@
     <div class="bg-white" style="">
 
 
-        <div class="mx-auto md:w-4/5 max-w-full	 py-8  md:py-12 px-8">
+        <div class="mx-auto md:w-4/5 max-w-7xl	 py-8  md:py-12 px-8">
             <h1 class="py-12 md:py-4 font-extrabold text-2xl lg:text-4xl text-center uppercase px-8 md:px-0">{{ $page->name }}</h1>
 
         </div>
     </div>
 
     @if(! $page->use_page_builder)
-        <div class="bg-white pb-8">
+        <div class="bg-white pb-8 mx-auto md:w-4/5 max-w-7xl	">
 
 
             <div class="mx-auto md:w-4/5 max-w-7xl px-8">
@@ -78,45 +78,7 @@
 
                         <livewire:contact.book-site-visit :page="$page"/>
 
-                        @if(isset($whatsApp->phone_number))
-                            <div class="mt-4 py-3 md:mx-auto md:max-w-2xl md:w-4/5">
-
-                                <div class=" px-4">
-                                    <h3 class="py-2 px-4 text-center capitalize">{{ $whatsApp->name }}</h3>
-                                    <img
-                                        class="  mx-4 px-8 object-cover rounded-md shadow-sm"
-                                        loading="lazy"
-                                        alt="{{ $whatsApp->name }}"
-                                        src="{{ \Illuminate\Support\Facades\Storage::url($whatsApp->avatar) }}"
-                                    >
-
-                                    <div class="md:text-center align-middle mt-4">
-
-                                        <div class="flex flex-col gap-1">
-
-                                            <span class="text-lg"> Interested in this Project:?</span>
-                                        </div>
-
-
-                                        <a
-                                            target="_blank"
-                                            class="button bg-red-600 hover:bg-red-500"
-                                            wire:navigate
-                                            href="https://wa.me/{{ $whatsApp->phone_number }}/?text=Hi+{{ $whatsApp->name }}%2c+I%e2%80%99d+like+to+chat+about+this+property+I+saw+on+the+Fanaka++Website.+Please+contact+me.+{{ url()->current() }}"
-                                        >
-                                            Click here to WhatsApp Me
-                                        </a>
-                                    </div>
-
-
-                                </div>
-
-
-                            </div>
-                        @endif
-
-
-                        <div class="">
+                        <div class="md:max-w-6xl">
                             <h3 class="font-semibold text-xl md:text-3xl md:font-extrabold text-center px-2"> Amenities
                                 and
                                 Features</h3>
