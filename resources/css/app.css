@@ -26,6 +26,19 @@
     .prose :where(h3 strong):not(:where([class~="not-prose"] *)) {
         @apply text-primary-600
     }
+    .prose :where(h2 strong):not(:where([class~="not-prose"] *)) {
+        @apply text-primary-600
+    }
+
+    .prose :where(h4 strong):not(:where([class~="not-prose"] *)) {
+        @apply text-primary-600
+    }
+    .prose :where(h5 strong):not(:where([class~="not-prose"] *)) {
+        @apply text-primary-600
+    }
+    .prose :where(h6 strong):not(:where([class~="not-prose"] *)) {
+        @apply text-primary-600
+    }
 
     strong{
         @apply text-primary-600  font-bold uppercase
