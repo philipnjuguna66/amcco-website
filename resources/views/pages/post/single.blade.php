@@ -11,7 +11,7 @@
     @endpush
 
 
-    <section class=" py-4 md:mx-auto md:max-w-7xl md:w-4/5 md:px-8 px-2 prose  lg:prose-md ">
+    <section class=" py-4 md:mx-auto md:max-w-7xl md:w-4/5 md:px-8 px-2  ">
 
         <div class="">
             <div class="md:mx-auto md:w-4/5 max-w-7xl md:py-8 px-8">
@@ -20,7 +20,7 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 px-4 md:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 px-4 md:px-8prose  lg:prose-md">
 
 
             <div class="col-span-2 md:mx-4 ">
