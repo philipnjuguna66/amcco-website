@@ -1,6 +1,6 @@
 <section class="@if($section->extra['bg_white']  ) bg-white @endif">
     <div class="py-12 md:py-24 md:mx-auto md:w-4/5 max-w-7xl ">
-        <div {{ $animationEffect }}   class="md:mx-auto px-6 lg:px-8">
+        <div {{ $animationEffect }}   class="md:mx-auto px-62lg:px-2">
             <div class="md:mx-auto max-w-2xl text-center">
                 <h2 class="text-3xl font-bold tracking-tight sm:text-4xl"> {{ str($section->extra['heading'])->toHtmlString() }}</h2>
                 <p class="mt-2 text-lg leading-8 text-gray-600"> {{ str($section->extra['subheading'])->toHtmlString() }}</p>
