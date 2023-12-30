@@ -49,7 +49,7 @@ Route::get('posts', function () {
                     'status' => $pro->terms->status[0],
                     'price' => $pro->custom_fields->price,
                     'meta_title' => $pro->title->rendered,
-                    //  'meta_description' => $data['meta_description'],
+                    'meta_description' => str($pro->content->rendered)->limit('156')->value(),
                     //  'location' => $data['location'],
                     //  'purpose' => $data['purpose'],
                       'featured_image' => "properties". DIRECTORY_SEPARATOR. $name,
