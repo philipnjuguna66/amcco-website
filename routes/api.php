@@ -183,7 +183,7 @@ Route::get('posts', function () {
                 $projectData = [
                     'title' => $pro->title->rendered,
                     'is_published' => true,
-                    'body' => $pro->content->rendered,
+                    'body' => str($pro->content->rendered)->stripTags("p,a,ul,li,ol,span,img")->toHtmlString(),
                     'meta_title' => $pro->title->rendered,
                     'meta_description' => str($pro->content->rendered)->limit('156')->value(),
                     'featured_image' =>$path,
