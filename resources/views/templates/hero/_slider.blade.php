@@ -1,8 +1,8 @@
 <div class="">
     <div class="bg-white relative">
-        <div class="w-full md:pt-[4.9rem]"  data-carousel="slide">
+        <div class=""  data-carousel="slide">
 
-            <div class="relative h-36 overflow-hidden lg:h-[500px]">
+            <div class="relative h-36 overflow-hidden lg:96">
                 @foreach($sliders as $image)
 
 
