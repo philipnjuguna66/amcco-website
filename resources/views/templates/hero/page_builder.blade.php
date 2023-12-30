@@ -29,7 +29,7 @@
                                     "default" => null,
                                 };
                                 ?>
-                            <div class="md:max-w-7xl mx-auto md:px-2">
+                            <div class="md:max-w-7xl mx-auto md:px-2 prose">
 
 
                                 {{ str($html)->toHtmlString() }}
