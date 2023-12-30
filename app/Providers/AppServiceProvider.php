@@ -64,8 +64,6 @@ class AppServiceProvider extends ServiceProvider
                 ->stripTags()
                 ->replace('<a>','')
                 ->replace('</a>','')
-                ->replace('</div>','')
-                ->replace('<div>','')
                 ->trim()
                 ->toString();
             if ($property == 'description') {
