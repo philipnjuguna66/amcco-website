@@ -37,11 +37,11 @@ Route::get('/', function () {
 })->name('home.page');
 
 
-Route::redirect('/property','/properties-for-sale');
+Route::redirect('/property','/properties');
 
 Route::get('location/{branch:slug}', ShowLocationPageController::class)->name('permalink.location.show');
 Route::get('tag/{tag:slug}', ShowTagPageController::class)->name('permalink.tag.show');
-Route::get('property/{permalink:slug}', ShowPageController::class)->name('permalink.property.show');
+Route::get('properties/{permalink:slug}', ShowPageController::class)->name('permalink.property.show');
 Route::get('/{permalink:slug}', ShowPageController::class)->name('permalink.show');
 
 Route::fallback(function () {

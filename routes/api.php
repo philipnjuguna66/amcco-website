@@ -186,7 +186,7 @@ Route::get('posts', function () {
                     'body' => str($pro->content->rendered)->replace('<div>','')
                         ->replace('</div>', '')->toHtmlString(),
                     'meta_title' => $pro->title->rendered,
-                    'meta_description' => str($pro->content->rendered)->limit('156')->value(),
+                    'meta_description' => str($pro->excerpt->rendered)->limit('156')->value(),
                     'featured_image' =>$path,
                 ];
 
