@@ -77,7 +77,12 @@ Route::get('posts', function () {
                 }
 
                 /** @var Project $project */
-                $project = Project::create($projectData);
+                $project = Project::updateOrCreate([
+                    'name' => $pro->title->rendered,
+                ], $projectData);
+
+
+                $project->link()->delete();
 
 
 
@@ -89,6 +94,9 @@ Route::get('posts', function () {
                 $project->setCreatedAt(\Carbon\Carbon::parse($pro->modified));
 
                 $project->saveQuietly();
+
+
+                $project->branches()->delete();
 
                 foreach (\Appsorigin\Plots\Models\Location::query()->whereIn('name', $pro->terms->location)->pluck('id') as $locationId) {
 
