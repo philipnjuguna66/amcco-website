@@ -5,7 +5,7 @@
             @foreach($section->extra['sliders'] as $slider)
                 <a href="{{ url($slider['url'] ?? "#") }}">
 
-                    <div class="hidden duration-700  ease-in-out"
+                    <div class=" duration-700  ease-in-out"
                          @if($loop->first) data-carousel-item="active" @else data-carousel-item @endif
                     >
                         <img  src="{{ \Illuminate\Support\Facades\Storage::url($slider['image']) }}"
