@@ -34,7 +34,9 @@ Route::get('posts', function () {
                 $featured_image = substr($url, strrpos($url, '/') + 1);
 
                 $path = "properties". DIRECTORY_SEPARATOR. "featured". DIRECTORY_SEPARATOR . $featured_image;
-                Storage::put($path,  $contents);
+                Storage::put($path,  $contents, [
+                    'visibility' => 'public'
+                ]);
 
 
                 foreach ($pro->terms->location as $location) {
@@ -71,7 +73,9 @@ Route::get('posts', function () {
 
                     $contents = file_get_contents($url);
                     $name = substr($url, strrpos($url, '/') + 1);
-                    Storage::put("properties". DIRECTORY_SEPARATOR. $name, $contents);
+                    Storage::put("properties". DIRECTORY_SEPARATOR. $name, $contents,[
+                        'visibility' => 'public'
+                    ]);
 
                     $projectData['gallery'] = "properties". DIRECTORY_SEPARATOR. $name;
 
