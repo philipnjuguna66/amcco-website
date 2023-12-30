@@ -29,10 +29,8 @@
                                     "default" => null,
                                 };
                                 ?>
-                            <div class="">
 
                                 {{ str($html)->toHtmlString() }}
-                            </div>
 
                         @endforeach
                     </div>
