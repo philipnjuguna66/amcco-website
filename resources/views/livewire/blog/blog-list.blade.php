@@ -17,7 +17,7 @@
                             </a>
                         </h3>
                         <p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">
-                            {{ str( $blog->meta_description)->toHtmlString()  }}
+                            {{ str( $blog->meta_description)->stripTags('p,span')->toHtmlString()  }}
                         </p>
                     </div>
                 </div>
