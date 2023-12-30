@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('posts', function () {
 
 
-        $response = Http::get("https://amccopropertiesltd.co.ke/wp-json/wp/v2/properties?_embed&fields=id,title,content");
+        $response = Http::get("https://amccopropertiesltd.co.ke/wp-json/wp/v2/properties?_embed&fields=id,title,content&per_page=100");
 
         if ($response->ok())
         {
