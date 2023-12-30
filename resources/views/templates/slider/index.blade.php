@@ -1,4 +1,4 @@
-<div class="bg-white relative" id="">
+<div class="bg-white relative" id="home-sliders">
     <div class="w-full"  data-carousel="slide"  id="controls-carousel">
 
         <div class="relative h-32 overflow-hidden lg:h-[500px]">
@@ -35,5 +35,8 @@
             <span class="sr-only">Next</span>
         </span>
     </button>
+</div>
+
+
 </div>
 
