@@ -19,21 +19,10 @@
                             </a>
                         </h3>
                         <div>
-                            <p class="flex justify-between gap-4">
-                                <span class="font-bold text-secondary-500">Purpose: </span>
-                                <span class="font-normal ">
-                                {{ $project->purpose }}
-                                </span>
-                            </p>
-                            <p class="flex justify-between gap-4">
-                                <span class="font-bold text-secondary-500">Location: </span>
-                                <span class="font-normal ">
-                                    {{ $project->location }}
-                                </span>
-                            </p>
+
 
                             <p class="flex justify-center text-red-600 font-semibold">
-                                Discounted Cash Price of Kes. {{ $project->price}}
+                                Cash Price of Kes. {{ $project->price}}
                             </p>
                         </div>
                         <div class="flex flex-row justify-center gap-4 w-auto">
