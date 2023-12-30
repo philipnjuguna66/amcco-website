@@ -1,6 +1,5 @@
 <div>
-    <div class="md:mx-auto  py-12 mt-16 grid grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-
+    <div class="mx-auto px-4 mt-16 grid max-w-4xl grid-cols-1 gap-x-8 gap-y-4 lg:max-w-none lg:grid-cols-{{ $grid }}">
         @foreach($blogs as $blog)
             <article class="flex flex-col items-start justify-between shadow-2xl shadow-gray-900/50 rounded-xl">
                 <div class="relative w-full">

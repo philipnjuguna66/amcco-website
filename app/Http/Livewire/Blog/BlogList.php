@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Blog;
 
 use App\Models\Tag;
 use Appsorigin\Blog\Models\Blog;
+use Illuminate\Database\Eloquent\Builder;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -14,6 +15,9 @@ class BlogList extends Component
     const CACHE_KEY = 'post';
 
     public $take = 0;
+    public $grid = 3;
+
+    public bool $random =  false;
 
     public ?Tag $tag;
 
@@ -28,6 +32,7 @@ class BlogList extends Component
 
 
         $blogs = Blog::query()
+            ->when($this->random , fn(Builder $query) => $query->inRandomOrder())
             ->latest('created_at')
             ->where('is_published', true);
 
