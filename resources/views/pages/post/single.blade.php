@@ -19,7 +19,7 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-x-4 gap-y-2">
 
 
             <div class="col-span-2 ">
