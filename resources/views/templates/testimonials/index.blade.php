@@ -50,7 +50,7 @@
                                     href="{{ $review['author_url'] }}"
                                     class="text-sm text-secondary-600"
                                     target="_blank">
-                                    Read More Reviews
+                                   Continue Reading ...
                                 </a>
                             @endif
                         </p>
