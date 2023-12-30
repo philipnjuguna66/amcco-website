@@ -206,7 +206,7 @@ Route::get('posts', function () {
 
                 $blog->link()->create([
                     'slug' => $pro->slug,
-                    'type' => 'project',
+                    'type' => \App\Utils\Enums\PermerlinkTypeEnums::POST,
                 ]);
 
                 $blog->setCreatedAt(\Carbon\Carbon::parse($pro->modified));
@@ -258,4 +258,7 @@ dd('donw');
 });
 
 
-Route::get("/test", fn() => Blog::all()->each(fn(Blog $blog) => event(new BlogCreatedEvent($blog))));
+Route::get("/test", fn() => Blog::all()->each(function (Blog $blog) {
+
+    return event(new BlogCreatedEvent($blog));
+}));
