@@ -22,7 +22,7 @@
                                     href="{{ route('permalink.show', $section->extra['project_link']) }}"
                                     class="button bg-secondary-600 hover:bg-primary-600"
                                 >
-                                    View more Projects <span aria-hidden="true">→</span></a>
+                                    View more blogs <span aria-hidden="true">→</span></a>
                             </div>
                         </div>
                     </div>
