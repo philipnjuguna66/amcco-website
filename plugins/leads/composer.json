@@ -1,0 +1,25 @@
+{
+    "name": "appsorigin/leads",
+    "description": "A package to add a form to a website and collect leads",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Appsorigin\\Leads\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Philip Njuguna"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Appsorigin\\Leads\\LeadsServiceProvider"
+            ]
+        }
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "name": "appsorigin/testimonial",
+    "description": "a package to add a plots for sale functionality to a website",
+    "type": "library",
+    "require": {
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Appsorigin\\Testimonial\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Philip Njuguna"
+        }
+    ],
+    "minimum-stability": "dev",
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Appsorigin\\Testimonial\\TestimonialServiceProvider"
+            ]
+        }
+    }
+}

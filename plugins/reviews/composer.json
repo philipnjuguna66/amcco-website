@@ -1,0 +1,27 @@
+{
+    "name": "pnjuguna/reviews",
+    "description": "a package to add a google reviews to a website",
+    "type": "library",
+    "require": {
+
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "PNjuguna\\Reviews\\": "Reviews/src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Philip Njuguna"
+        }
+    ],
+    "minimum-stability": "dev",
+    "extra": {
+        "laravel": {
+            "providers": [
+                "PNjuguna\\Reviews\\src\\ReviewsServiceProvider"
+            ]
+        }
+    }
+}

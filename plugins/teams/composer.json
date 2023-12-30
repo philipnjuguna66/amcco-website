@@ -1,0 +1,27 @@
+{
+    "name": "appsorigin/teams",
+    "description": "a package to add a Teams to a website",
+    "type": "library",
+    "require": {
+
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Appsorigin\\Teams\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Philip Njuguna"
+        }
+    ],
+    "minimum-stability": "dev",
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Appsorigin\\Teams\\TeamsServiceProvider"
+            ]
+        }
+    }
+}
