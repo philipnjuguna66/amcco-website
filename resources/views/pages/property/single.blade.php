@@ -24,7 +24,7 @@
 
 
             <div class="">
-                <div class="grid grid-cols-1 md:grid-cols-7 gap-4 py-8">
+                <div class="grid grid-cols-1 md:grid-cols-7 gap-4 py-8 px-2 md:px-8">
 
 
                     <div class="md:col-span-4">
@@ -74,7 +74,7 @@
 
                     </div>
 
-                    <div class="md:col-span-3 sticky z-50 left-0 right-0">
+                    <div class="md:col-span-3 fixed z-30 left-0 right-0">
 
                         <livewire:contact.book-site-visit :page="$page"/>
 
