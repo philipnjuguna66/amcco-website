@@ -15,7 +15,7 @@
 
         <div class="mt-4">
             <div class="bg-transparent px-6 pt-4 sm:pt-12 lg:px-8 flex justify-center max-w-2xl">
-                <h1 class="font-bold text-2xl text-center">{{ $post->title }}</h1>
+                <h1 class="font-extrabold text-3xl lg:text-5xl text-center">{{ $post->title }}</h1>
             </div>
         </div>
 
