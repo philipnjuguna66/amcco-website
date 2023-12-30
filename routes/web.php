@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 use Maatwebsite\Excel\Facades\Excel;
 use Spatie\LaravelSettings\Migrations\SettingsMigration;
 use Spatie\Sitemap\SitemapGenerator;
-
+use Illuminate\Support\Facades\Cache;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,7 +24,15 @@ use Spatie\Sitemap\SitemapGenerator;
 
 
 Route::get('/', function () {
-        $page = \App\Models\Page::query()->with('sections', 'link')->where('is_front_page', true)->firstOrFail();
+
+
+
+    if (!Cache::has("page.1")) {
+        return redirect('/');
+    }
+
+
+    $page = Cache::get("page.1");
 
 
     return view('welcome')->with(['page' => $page]);
