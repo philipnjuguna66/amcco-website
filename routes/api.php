@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('posts', function () {
 
 
+
+
+    dispatch(function (){
+
         $response = Http::get("https://amccopropertiesltd.co.ke/wp-json/wp/v2/properties?_embed&fields=id,title,content&per_page=100");
 
         if ($response->ok())
@@ -34,7 +38,7 @@ Route::get('posts', function () {
                 foreach ($pro->terms->location as $location) {
 
                     \Appsorigin\Plots\Models\Location::updateOrCreate([
-                       'name' => $location
+                        'name' => $location
                     ],[
                         'slug' => str($location)->lower()->slug()->value()
                     ]);
@@ -52,7 +56,7 @@ Route::get('posts', function () {
                     'meta_description' => str($pro->content->rendered)->limit('156')->value(),
                     //  'location' => $data['location'],
                     //  'purpose' => $data['purpose'],
-                      'featured_image' => "properties". DIRECTORY_SEPARATOR. $name,
+                    'featured_image' => "properties". DIRECTORY_SEPARATOR. $name,
                     'amenities' => $pro->custom_fields->features,
                 ];
 
@@ -101,6 +105,7 @@ Route::get('posts', function () {
 
 
         }
+    })->onQueue('properties');
 
         dd($response->json());
 
