@@ -2,6 +2,7 @@
 
 namespace App\Utils\Services\Google;
 
+use App\Models\ReviewSetting;
 use Illuminate\Support\Facades\Http;
 
 class Reviews
@@ -15,11 +16,15 @@ class Reviews
         $this->baseUrl = "https://mybusiness.googleapis.com/v4/accounts/{accountId}/locations/{locationId}/reviews";
 
         $this->apiKey = config('services.google.key');
-        $this->placeId = config('services.google.place_id');
+        $this->placeId = config('services.google.place_id') ??  ReviewSetting::query()->first()?->place_id;
     }
 
     public function getReviews(string $sort = "newest")
     {
+        if (empty($this->placeId))
+        {
+            $this->placeId = $this->getPlaces(config("services.google.place_name"))['place_id'];
+        }
         $apiKey = $this->apiKey;
         $placeId = $this->placeId;
         $reviews = [];
