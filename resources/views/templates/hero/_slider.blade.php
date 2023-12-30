@@ -6,7 +6,7 @@
 
                 <div class=" duration-700  ease-in-out" data-carousel-item>
                     <img src="{{ \Illuminate\Support\Facades\Storage::url($image) }}"
-                         class="absolute block object-cover  -translate-x-1/2 -translate-y-1/2  top-1/2 left-1/2"
+                         class="absolute block object-cover w-full  -translate-x-1/2 -translate-y-1/2  top-1/2 left-1/2"
                          alt="{{ $page->meta_title }}">
                 </div>
 
