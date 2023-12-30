@@ -105,9 +105,10 @@ Route::get('posts', function () {
 
 
         }
+        dump($response->json());
+
     })->onQueue('properties');
 
-        dd($response->json());
 
 
 
