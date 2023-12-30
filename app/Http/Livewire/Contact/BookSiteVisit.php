@@ -119,12 +119,12 @@ class BookSiteVisit extends Component implements HasForms
                     'page' => isset($this->page->title) ? $this->page->title : $branch,
                 ]);
 
-                Http::post('https://mis.fanaka.co.ke/api/notification', [
+               /* Http::post('https://mis.fanaka.co.ke/api/notification', [
                     'tel' => $phone,
                     'branch' => $branch,
                     'name' => $data['name'],
                     'message' => $message,
-                ]);
+                ]);*/
 
 
                 event(new LeadCreatedEvent(
