@@ -33,7 +33,7 @@
                             @if(! is_null($page->video_path))
                                 @include('templates.embeded._video_iframe' , [ 'videoUri' =>   $page->video_path, 'autoplay' => true ])
                             @else
-                                <img class="h-auto w-full max-w-full rounded-lg object-cover object-center"
+                                <img class="h-auto w-auto rounded-lg object-cover object-center"
                                      src="{{  \Illuminate\Support\Facades\Storage::url($page->featured_image)}}"
                                      alt="{{ $page->meta_title }}"
                                 >
@@ -114,7 +114,7 @@
                             @foreach($page->gallery as $gallery)
                                 <div>
 
-                                    <img class="h-auto w-full max-w-full rounded-lg object-cover object-center"
+                                    <img class="h-auto w-full auto rounded-lg object-cover object-center"
                                          src="{{  \Illuminate\Support\Facades\Storage::url($gallery)}}"
                                          alt="{{ $page->meta_title }}"
                                     >
@@ -138,7 +138,7 @@
         @foreach($page->extra as $extra)
 
             <div class="bg-gray-50  @if($extra['extra']['bg_white'] )  bg-white @endif">
-                <div class="mx-auto md:w-4/5 max-w-full	 py-12 md:mt-20 md:py-16 px-8">
+                <div class="mx-auto md:w-4/5 max-w-7xl	 py-12 md:mt-20 md:py-16 px-8">
                     <div
                         class="  grid grid-cols-1 md:grid-cols-{{ $extra['extra']['columns'] }}  gap-x-3 space-y-4 mt-4 py-4">
                         @foreach($extra['extra']['columns_sections'] as $index => $columns)
