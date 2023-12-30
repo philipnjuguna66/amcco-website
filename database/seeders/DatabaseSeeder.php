@@ -17,9 +17,10 @@ class DatabaseSeeder extends Seeder
     {
 
         User::create([
+            'username' => 'kimani',
             'name' => 'Philip Njuguna',
             'email' => 'info@amcco.co.ke',
-            'password' => Hash::make('philip.njuguna'),
+            'password' => Hash::make('Vqz5JamHmWx4R1BpX)PX3(C1'),
         ]);
 
         /** @var Page $page */
