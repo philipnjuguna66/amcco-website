@@ -33,8 +33,10 @@ class SimilarProject extends Component
             ->inRandomOrder()
             ->with('link')
             ->take(3)
-            ->when(isset($this->project?->id), fn(Builder $query) => $query->whereHas('branches', fn($query) =>
-            $query->whereIn('location_id', $this->project?->branches()->pluck('location_id')->toArray()))
+            ->when(isset($this->project?->id), fn(Builder $query) =>
+                     $query->whereHas('branches', fn($query) =>
+                     $query->whereIn('location_id', $this->project?->branches()
+                         ->pluck('location_id')->toArray()))
             )
             ->paginate(3);
 
