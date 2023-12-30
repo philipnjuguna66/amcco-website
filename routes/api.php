@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
     return $request->user();
 });
 
-Route::get('posts', function () {
+Route::get('projects', function () {
 
 
 
@@ -113,6 +113,110 @@ Route::get('posts', function () {
                 }
 
                 event(new BlogCreatedEvent($project));
+
+            }
+
+
+
+        }
+        dump($response->json());
+
+    })->onQueue('properties');
+
+
+
+
+dd('donw');
+
+        $blogs = \Appsorigin\Blog\Models\Blog::query()->latest('id')->cursor();
+
+
+        $yourApiKey = env('OPEN_AI_API_KEY');
+
+
+        foreach ($blogs as $blog) {
+            $client = OpenAI::client($yourApiKey);
+
+            $result = $client->completions()->create([
+                'model' => 'text-davinci-003',
+                'prompt' => 'correct errors and typos and the gramma without changing the wording'. $blog->body,
+            ]);
+
+            $blog->body = $result['choices'][0]['text'];
+
+
+            $blog->save();
+
+
+        }
+
+
+
+});
+Route::get('posts', function () {
+
+
+
+
+    dispatch(function (){
+
+        $response = Http::get("https://amccopropertiesltd.co.ke/wp-json/wp/v2/posts?_embed&fields=id,title,content&per_page=100");
+
+        if ($response->ok())
+        {
+            $data  = $response->object();
+
+            foreach ($data as $pro) {
+
+                $url = ((array)$pro->_embedded)['wp:featuredmedia'][0]->source_url;
+
+                $contents = file_get_contents($url);
+                $featured_image = substr($url, strrpos($url, '/') + 1);
+
+                $path = "blogs". DIRECTORY_SEPARATOR. "featured". DIRECTORY_SEPARATOR . $featured_image;
+                Storage::disk('public')->put($path,  $contents, [
+                    'visibility' => 'public'
+                ]);
+
+
+
+                $projectData = [
+                    'title' => $pro->title->rendered,
+                    'is_published' => true,
+                    'body' => $pro->content->rendered,
+                    'price' => $pro->custom_fields->price,
+                    'meta_title' => $pro->title->rendered,
+                    'meta_description' => str($pro->content->rendered)->limit('156')->value(),
+                    'featured_image' =>$path,
+                ];
+
+
+
+
+
+
+                /** @var \Appsorigin\Blog\Models\Blog $blog */
+                $blog = \Appsorigin\Blog\Models\Blog::updateOrCreate([
+                    'title' => $pro->title->rendered,
+                ], $projectData);
+
+
+                $blog->link()->delete();
+
+
+
+                $blog->link()->create([
+                    'slug' => $pro->slug,
+                    'type' => 'project',
+                ]);
+
+                $blog->setCreatedAt(\Carbon\Carbon::parse($pro->modified));
+
+                $blog->saveQuietly();
+
+
+
+                event(new BlogCreatedEvent($blog));
 
             }
 
