@@ -9,7 +9,7 @@
             <!-- Item 1 -->
             <div class="hidden duration-700 ease-in-out"  @if($loop->first) data-carousel-item="active" @else data-carousel-item @endif>
                 <img
-                    alt="{{ $title }}"
+                    alt="{{ $title ?? $page->meta_title }}"
                     src="{{ \Illuminate\Support\Facades\Storage::url($image) }}"
                      class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                 >
