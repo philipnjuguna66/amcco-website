@@ -184,7 +184,6 @@ Route::get('posts', function () {
                     'title' => $pro->title->rendered,
                     'is_published' => true,
                     'body' => $pro->content->rendered,
-                    'price' => $pro->custom_fields->price,
                     'meta_title' => $pro->title->rendered,
                     'meta_description' => str($pro->content->rendered)->limit('156')->value(),
                     'featured_image' =>$path,
