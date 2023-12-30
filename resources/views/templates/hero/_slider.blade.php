@@ -2,7 +2,7 @@
 
 <div id="gallery" class="relative w-full" data-carousel="slide">
     <!-- Carousel wrapper -->
-    <div class="relative h-56 overflow-hidden rounded-lg md:h-[500px]">
+    <div class="relative w-full h-56 overflow-hidden rounded-lg md:h-[500px]">
 
 
         @foreach($sliders as $image)
