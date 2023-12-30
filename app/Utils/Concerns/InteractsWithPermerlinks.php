@@ -22,15 +22,14 @@ trait InteractsWithPermerlinks
         return str($this->meta_title)->headline()->value();
     }
 
-    public function metaDescription(): Attribute
+    public function getMetaDescription(): string
     {
-        return  new Attribute(
-            get: fn($value) : string => str($value)
-                ->stripTags()
-                ->replace('<a>','')
-                ->replace('</a>','')
-                ->trim()
-                ->toString()
-        );
+        return str($this->meta_description)
+            ->ucfirst()
+            ->stripTags()
+            ->replace('<a>','')
+            ->replace('</a>','')
+            ->trim()
+            ->toString();
     }
 }
