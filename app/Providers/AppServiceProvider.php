@@ -60,9 +60,13 @@ class AppServiceProvider extends ServiceProvider
             [$property, $content] = explode(',', $expression, 2);
             $metas = '';
 
-            $content = str($content)->stripTags()
+            $content = str($content)
+                ->stripTags()
+                ->replace('<a>','')
+                ->replace('</a>','')
+                ->replace('</div>','')
+                ->replace('<div>','')
                 ->trim()
-
                 ->toString();
             if ($property == 'description') {
 
