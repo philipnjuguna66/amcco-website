@@ -7,7 +7,7 @@
 
         @foreach($sliders as $image)
             <!-- Item 1 -->
-            <div class="hidden duration-700 ease-in-out"  @if($loop->first) data-carousel-item="active" @else data-carousel-item @endif>
+            <div class=" duration-700 ease-in-out"  @if($loop->first) data-carousel-item="active" @else data-carousel-item @endif>
                 <img
                     alt="{{ $title ?? $page->meta_title }}"
                     src="{{ \Illuminate\Support\Facades\Storage::url($image) }}"
