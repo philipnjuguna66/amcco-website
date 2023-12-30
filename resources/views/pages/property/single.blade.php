@@ -10,7 +10,7 @@
         @meta("description", $page->meta_description)
     @endpush
 
-    <div class="bg-white" style="">
+    <div class="" style="">
 
 
         <div class="mx-auto md:w-4/5 max-w-7xl	 py-8  md:py-12 px-8">
