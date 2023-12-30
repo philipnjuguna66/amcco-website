@@ -14,8 +14,8 @@
     <section class=" py-4 md:mx-auto md:max-w-7xl md:w-4/5 md:px-8 px-2 prose  lg:prose-md ">
 
         <div class="">
-            <div class="md:mx-auto md:w-4/5 max-w-7xl py-4  md:py-8 px-8">
-                <h1 class="font-extrabold text-3xl lg:text-5xl md:text-center uppercase px-8 md:px-0 text-primary-600">{{ $post?->title }}</h1>
+            <div class="md:mx-auto md:w-4/5 max-w-7xl md:py-8 px-8">
+                <h1 class="font-extrabold text-2xl lg:text-5xl text-center uppercase px-8 md:px-0 text-primary-600">{{ $post?->title }}</h1>
 
             </div>
         </div>
