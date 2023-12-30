@@ -47,8 +47,8 @@
                             {{  str($review['text'])->limit(150)->toHtmlString() ?? null }}
                             @if(isset($review['text']))
                                 <a
-                                    href="https://www.google.com/maps/place/Fanaka+Real+Estate/@-1.2697225,36.9948097,17z/data=!4m8!3m7!1s0x182f6b22399ee4b9:0x5b6aace6f1689ba0!8m2!3d-1.2697225!4d36.9948097!9m1!1b1!16s%2Fg%2F11j1198zx6?entry=ttu"
-                                    class="text-sm text-primary-600"
+                                    href="{{ $review['author_url'] }}"
+                                    class="text-sm text-secondary-600"
                                     target="_blank">
                                     Read More
                                 </a>
@@ -71,7 +71,7 @@
                     </p>
                 </div>
                 <div>
-                    <a href="https://g.page/r/CaCbaPHmrGpbEB0/review" target="_blank" class="button bg-red-600">Leave Review</a>
+                    <a href="https://g.page/r/CTODPDoqqWOCEB0/review" target="_blank" class="button bg-red-600">Leave Review</a>
                 </div>
 
             </div>
