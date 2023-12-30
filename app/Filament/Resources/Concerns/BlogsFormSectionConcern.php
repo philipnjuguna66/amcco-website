@@ -30,6 +30,7 @@ trait BlogsFormSectionConcern
 
                     return $options;
                 })
+            ->searchable()
 
         ]);
     }
