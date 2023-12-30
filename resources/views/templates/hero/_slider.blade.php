@@ -2,7 +2,7 @@
 
 <div id="gallery" class="relative w-full" data-carousel="slide">
     <!-- Carousel wrapper -->
-    <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+    <div class="relative h-56 overflow-hidden rounded-lg md:h-[500px]">
 
 
         @foreach($sliders as $image)
@@ -11,7 +11,7 @@
                 <img
                     alt="{{ $title ?? $page->meta_title }}"
                     src="{{ \Illuminate\Support\Facades\Storage::url($image) }}"
-                     class="absolute block max-w-full h-auto -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+                     class="absolute block max-w-full  -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                 >
             </div>
         @endforeach
