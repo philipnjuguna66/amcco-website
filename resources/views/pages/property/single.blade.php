@@ -79,9 +79,9 @@
                         <livewire:contact.book-site-visit :page="$page"/>
 
                         <div class="md:max-w-6xl">
-                            <h3 class="font-semibold text-xl md:text-3xl md:font-extrabold text-center px-2"> Amenities
-                                and
-                                Features</h3>
+                            <h3 class="font-semibold text-xl md:text-3xl md:font-extrabold text-center px-2 py-4 md:mt-8 lg:py-8">
+                                Amenities and Features
+                            </h3>
 
                             @if(is_array($page->amenities))
                                 <ul class="list-decimal mx-4">
