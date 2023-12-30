@@ -15,7 +15,7 @@
         <div class="mt-4 py-4">
             <div class="grid grid-cols-1 md:grid-cols-{{ $section->extra['columns'] }}  gap-x-2 gap-y-2">
                 @foreach($section->extra['columns_sections'] as $index => $columns)
-                    <div class=" md:max-w-7xl mx-auto md:px-2 prose">
+                    <div class="">
                         @foreach($columns as $column)
                                 <?php
                                 $html = match ($column['type']) {
