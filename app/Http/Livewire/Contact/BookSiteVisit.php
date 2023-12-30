@@ -35,7 +35,7 @@ class BookSiteVisit extends Component implements HasForms
     public $branch;
     public $phone_number;
 
-    public Project|Model|null $page = null;
+    public $page = null;
 
     protected function getFormSchema(): array
     {
