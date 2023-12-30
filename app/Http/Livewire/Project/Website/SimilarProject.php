@@ -18,7 +18,7 @@ class SimilarProject extends Component
 
     public $grid = 3;
 
-    public function mount(?Project $project)
+    public function mount(?Project $project = null)
     {
         $this->project = $project;
 
