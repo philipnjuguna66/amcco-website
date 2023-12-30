@@ -1,7 +1,7 @@
 <div class="bg-white relative">
     <div class="w-full" data-carousel="slide">
 
-        <div class="relative h-36 overflow-hidden lg:h-auto">
+        <div class="relative h-36 overflow-hidden lg:h-96">
             @foreach($sliders as $image)
 
                 <div class=" duration-700  ease-in-out" data-carousel-item>
