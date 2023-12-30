@@ -19,10 +19,10 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 px-4 md:px-8">
 
 
-            <div class="col-span-2 md:mx-4 px-2">
+            <div class="col-span-2 md:mx-4 ">
                 <img src="{{ \Illuminate\Support\Facades\Storage::url($post?->featured_image) }}"
                      class="w-[800px] h-[500px] rounded-md object-contain aspect-ratio"
                      alt="{{ $post?->meta_title }}"
