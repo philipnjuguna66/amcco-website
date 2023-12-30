@@ -15,7 +15,7 @@
 
         <div class="">
             <div class="md:mx-auto md:w-4/5 max-w-7xl	 py-4  md:py-8 px-8">
-                <h1 class="font-extrabold text-3xl lg:text-5xl text-center uppercase px-8 md:px-0">{{ $post?->title }}</h1>
+                <h1 class="font-extrabold text-3xl lg:text-5xl text-center uppercase px-8 md:px-0 text-primary-600">{{ $post?->title }}</h1>
 
             </div>
         </div>
