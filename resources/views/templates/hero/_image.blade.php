@@ -1,4 +1,4 @@
-<div class="dark:text-white py-4">
+<div class="dark:text-white py-0.5">
 
     <img
         loading="lazy"
