@@ -46,7 +46,7 @@
     h2, h3, h4,h5,h6{
         @apply font-normal
     }
-    h2>strong, h3>strong, h4>strong,h5>strong,h6>strong{
+    h2 strong, h3 strong, h4 strong,h5 strong,h6 strong{
         @apply @apply text-primary-600  font-bold uppercase font-extrabold text-2xl lg:text-3xl font-normal
     }
     .button{
