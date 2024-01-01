@@ -46,6 +46,11 @@
     h2, h3, h4,h5,h6{
         @apply font-normal
     }
+    .prose{
+        --tw-prose-headings: #145359;
+        --tw-prose-links: #145359;
+        --tw-prose-bold: #145359;
+    }
 
     .prose :where(h3):not(:where([class~="not-prose"] *)) {
         color: #145359;
