@@ -3,12 +3,14 @@
 namespace Appsorigin\Blog\Filament\Resources;
 
 
+use App\Utils\Enums\BlogTypeEnum;
 use Appsorigin\Blog\Filament\Resources\BlogResource\Pages\CreateBlog;
 use Appsorigin\Blog\Filament\Resources\BlogResource\Pages\EditBlog;
 use Appsorigin\Blog\Filament\Resources\BlogResource\Pages\ListBlogs;
 use Appsorigin\Blog\Filament\Resources\BlogResource\RelationManagers\TagsRelationManager;
 use Appsorigin\Blog\Models\Blog;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
@@ -34,6 +36,20 @@ class BlogResource extends Resource
                             ->afterStateUpdated(fn (\Closure $set, $state): string => $set('slug', str($state)->slug()))
                             ->required()
                             ->maxLength(255),
+                        Select::make('type')
+                            ->options(function (): array {
+
+                                $options = [];
+
+                                foreach (BlogTypeEnum::cases() as $case) {
+
+                                    $options[$case->value] = $case->getLabel();
+
+                                }
+
+                                return $options;
+                            })
+                            ->searchable(),
                         Forms\Components\RichEditor::make('body')
                             ->required(),
                         Forms\Components\Toggle::make('is_published')
