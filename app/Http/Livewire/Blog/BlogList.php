@@ -35,7 +35,7 @@ class BlogList extends Component
 
 
         $blogs = Blog::query()
-            ->where('type', BlogTypeEnum::POST)
+            ->where('type', $this->type)
             ->when($this->random , fn(Builder $query) => $query->inRandomOrder())
             ->latest('created_at')
             ->where('is_published', true);
