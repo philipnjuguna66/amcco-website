@@ -79,7 +79,7 @@
     </div>
 
     <div class="bg-gray-950 py-4  border-t border-gray-50 text-center">
-        <p class="text-xs leading-5 text-gray-50 ">&copy; {{ now()->year }}
+        <p class="text-xs leading-5 text-gray-50 ">&copy; 2020 - {{ now()->year }}
             {{ config('app.name') }}. All rights reserved.
 
             {{--<span class=" text-gray-50/70">Powered By <a
