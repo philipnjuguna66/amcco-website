@@ -292,7 +292,7 @@ dd('donw');
                       'body' => str($pro->content->rendered)->replace('<div>','')
                           ->replace('</div>', '')->toHtmlString(),
                       'meta_title' => $pro->title->rendered,
-                      'meta_description' => str($pro->excerpt->rendered)->limit('156')->value(),
+                      'meta_description' => str($pro->content->rendered)->stripTags()->limit('156')->value(),
                       'featured_image' =>$path,
                       'type' => \App\Utils\Enums\BlogTypeEnum::UPDATES,
                   ];
