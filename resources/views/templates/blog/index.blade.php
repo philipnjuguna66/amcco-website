@@ -6,7 +6,7 @@
                 <p class="mt-2 text-lg leading-8 text-gray-600"> {{ str($section->extra['subheading'])->toHtmlString() }}</p>
             </div>
 
-            <livewire:blog.blog-list :take="$section->extra['count']"/>
+            <livewire:blog.blog-list :take="$section->extra['count']" type="{{ $section->extra['type'] ?? \App\Utils\Enums\BlogTypeEnum::POST }} "/>
 
 
 
