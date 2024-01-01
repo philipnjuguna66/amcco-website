@@ -28,10 +28,10 @@ class LeadCreatedListener implements ShouldQueue
     public function handle(LeadCreatedEvent $event)
     {
         (new SendSms())
-        ->send(
-            to: config('services.advanta.phone'),
-            text: $event->message
-        )
+            ->send(
+                to: config('services.advanta.phone'),
+                text: $event->message
+            );
 
         (new TelegramBot())->sendMessage($event->message);
 
