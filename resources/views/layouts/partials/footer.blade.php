@@ -78,7 +78,7 @@
 
     </div>
 
-    <div class="bg-gray-950 py-4  border-t border-white/10 pt-2 sm:mt-2 lg:mt-2 text-center">
+    <div class="bg-gray-950 py-4  border-t border-gray-50 text-center">
         <p class="text-xs leading-5 text-gray-50 ">&copy; {{ now()->year }}
             {{ config('app.name') }}. All rights reserved.
 
