@@ -18,11 +18,11 @@
     </div>
 
     @if(! $page->use_page_builder)
-        <div class="pb-8 md:mx-auto md:w-4/5 max-w-7xl	px-2">
+        <div class="pb-8 md:mx-auto md:w-4/5 max-w-7xl px-2 md:px-8">
 
 
             <div class="">
-                <div class="grid grid-cols-1 md:grid-cols-7 gap-4 py-8 px-2 md:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-7 gap-4 py-8 ">
 
 
                     <div class="md:col-span-4">
@@ -72,11 +72,11 @@
 
                     </div>
 
-                    <div class="md:col-span-3 overflow-y-scroll stick  z-30 left-0 right-0">
+                    <div class="md:col-span-3 overflow-y-scroll sticky  z-30 left-0 right-0">
 
                         <livewire:contact.book-site-visit :page="$page"/>
 
-                        <div class="md:max-w-6xl">
+                        <div class="md:max-w-7xl">
                             <h3 class="font-extrabold text-xl md:text-3xl md:font-extrabold text-center px-2 py-4 md:mt-8 lg:py-8">
                                 Project Features
                             </h3>
