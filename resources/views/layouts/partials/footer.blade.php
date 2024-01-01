@@ -26,9 +26,12 @@
                                         <div class="">
 
                                             <h3 class=" font-semibold leading-6 text-white ">{{ $footerSection['data']['heading'] }}</h3>
-                                            <p class="py-4 leading-6 @if(isset($footerSection['data']['logo'])) mt-12 @endif prose text-white">
-                                                {!! $footerSection['data']['content'] !!}
-                                            </p>
+
+                                            @if(str($footerSection['data']['content'])->length())
+                                                <p class="py-4 leading-6 @if(isset($footerSection['data']['logo'])) mt-12 @endif prose text-white">
+                                                    {!! $footerSection['data']['content'] !!}
+                                                </p>
+                                            @endif
 
                                             <ul role="list" class="">
 
