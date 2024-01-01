@@ -43,6 +43,7 @@ class EditBlog extends EditRecord
                 'meta_title' => $data['meta_title'],
                 'meta_description' => $data['meta_description'],
                 'featured_image' => $data['featured_image'],
+                'type' => $data['type'],
             ]);
 
             $record->link()->delete();
