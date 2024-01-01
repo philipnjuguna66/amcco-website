@@ -1,7 +1,6 @@
-<footer class="bg-primary-900 py-12" aria-labelledby="footer-heading">
+<footer class="bg-primary-900" aria-labelledby="footer-heading">
     <h2 id="footer-heading" class="sr-only">Footer</h2>
-    <div class="mx-auto md:w-4/5 max-w-8xl px-6 lg:px-8">
-
+    <div class="mx-auto md:w-4/5 max-w-8xl px-6 lg:px-8 py-12">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-x-2 justify-between gap-y-4">
             @if(isset(app(\App\Settings\FooterSettings::class)->sections  ) && is_array(app(\App\Settings\FooterSettings::class)->sections))
                 @foreach(app(\App\Settings\FooterSettings::class)->sections as $footerSection)
@@ -53,18 +52,6 @@
             @endif
 
         </div>
-
-
-        <div class="mt-16 border-t border-white/10 pt-2 sm:mt-2 lg:mt-2 text-center">
-            <p class="text-xs leading-5 text-gray-50 ">&copy; {{ now()->year }}
-                {{ config('app.name') }}. All rights reserved.
-
-                {{--<span class=" text-gray-50/70">Powered By <a
-                        href="https://fanaka.co.ke/ict-department" target="_blank"> {{ app() }}</a> </span>--}}
-            </p>
-        </div>
-
-
     </div>
 
     <div class="relative" >
@@ -91,5 +78,13 @@
 
     </div>
 
+    <div class="bg-gray-950 mt-16 border-t border-white/10 pt-2 sm:mt-2 lg:mt-2 text-center">
+        <p class="text-xs leading-5 text-gray-50 ">&copy; {{ now()->year }}
+            {{ config('app.name') }}. All rights reserved.
+
+            {{--<span class=" text-gray-50/70">Powered By <a
+                    href="https://fanaka.co.ke/ict-department" target="_blank"> {{ app() }}</a> </span>--}}
+        </p>
+    </div>
 </footer>
 
