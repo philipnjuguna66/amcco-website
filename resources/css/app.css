@@ -48,9 +48,11 @@
     }
 
     .prose :where(h3):not(:where([class~="not-prose"] *)) {
+        color: #145359;
        @apply text-primary-600 font-bold uppercase font-extrabold text-2xl lg:text-3xl
     }
     .prose :where(a):not(:where([class~="not-prose"] *)) {
+        color: #145359;
         @apply text-primary-600 font-bold uppercase
     }
 
