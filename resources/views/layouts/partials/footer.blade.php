@@ -30,10 +30,10 @@
                                                 {!! $footerSection['data']['content'] !!}
                                             </p>
 
-                                            <ul role="list" class="mt-6">
+                                            <ul role="list" class="">
 
                                                 @foreach($footerSection['data']['links'] as $link)
-                                                    <li class="md:py-1">
+                                                    <li class="md:py-4">
                                                         <a href="{{ $link['link'] }}"
                                                            class=" leading-6 text-gray-50 hover:text-white">{{ $link['label'] }}</a>
                                                     </li>
