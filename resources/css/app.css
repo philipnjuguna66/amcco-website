@@ -47,9 +47,9 @@
         @apply font-normal
     }
     .prose{
-        --tw-prose-headings: #145359;
-        --tw-prose-links: #145359;
-        --tw-prose-bold: #145359;
+        --tw-prose-headings: #145359 !important;
+        --tw-prose-links: #145359 !important;
+        --tw-prose-bold: #145359 !important;
     }
 
     .prose :where(h3):not(:where([class~="not-prose"] *)) {
