@@ -6,6 +6,7 @@ use App\Events\BlogCreatedEvent;
 use App\Models\Permalink;
 use App\Models\Tag;
 use App\Utils\Concerns\InteractsWithPermerlinks;
+use App\Utils\Enums\BlogTypeEnum;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -22,6 +23,7 @@ class Blog extends Model implements Sitemapable
 
     protected $casts = [
         'is_published' => 'boolean',
+        'type' => BlogTypeEnum::class,
     ];
 
     protected $with = [

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Blog;
 
 use App\Models\Tag;
+use App\Utils\Enums\BlogTypeEnum;
 use Appsorigin\Blog\Models\Blog;
 use Illuminate\Database\Eloquent\Builder;
 use Livewire\Component;
@@ -16,6 +17,8 @@ class BlogList extends Component
 
     public $take = 0;
     public $grid = 3;
+
+    public $type = BlogTypeEnum::POST;
 
     public bool $random =  false;
 
@@ -32,6 +35,7 @@ class BlogList extends Component
 
 
         $blogs = Blog::query()
+            ->where('type', BlogTypeEnum::POST)
             ->when($this->random , fn(Builder $query) => $query->inRandomOrder())
             ->latest('created_at')
             ->where('is_published', true);
