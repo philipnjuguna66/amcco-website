@@ -13,7 +13,7 @@
         </div>
 
         <div class="mt-4 py-4">
-            <div class="grid grid-cols-1 md:grid-cols-{{ $section->extra['columns'] }}  gap-x-2 gap-y-2">
+            <div class="grid grid-cols-1 md:grid-cols-{{ $section->extra['columns'] }}  gap-x-2 gap-y-0.5">
                 @foreach($section->extra['columns_sections'] as $index => $columns)
                     <div class=" ">
                         @foreach($columns as $column)
