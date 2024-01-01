@@ -1,6 +1,6 @@
 <x-guest-layout>
     @section('title', $branch->name . " projects for Sale")
-    <section class="mt-8  mt-4 py-8     bg-white">
+    <section class="py-8 bg-white">
         <div class="mx-auto md:w-4/5">
             <div class="md:mx-auto max-w-7xl">
                 <div class="mx-auto max-w-2xl text-center">
