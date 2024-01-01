@@ -14,11 +14,6 @@
                     <div class="">
                         <div class="flex flex-row gap-4">
 
-                            <x-dynamic-component
-                                component="heroicon-s-phone-outgoing"
-                                class="h-5 w-5 shrink-0"
-                            />
-
                             <a href="{{ $phone['link'] }} " class="text-white"> {{ $phone['label'] }} </a>
                         </div>
                     </div>
