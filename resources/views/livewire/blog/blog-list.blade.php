@@ -3,8 +3,9 @@
         @foreach($blogs as $blog)
             <article class="flex flex-col items-start justify-between shadow-2xl shadow-gray-900/50 rounded-xl">
                 <div class="relative w-full">
-                    <img src="{{ \Illuminate\Support\Facades\Storage::url($blog->featured_image) }}" alt="{{ $blog->title }}"
-                         class=" w-full object-cover ">
+                    <img src="{{ \Illuminate\Support\Facades\Storage::url($blog->featured_image) }}"
+                         alt="{{ $blog->title }}"
+                         class="md:h-[500px] w-full object-cover ">
                 </div>
                 <div class="max-w-xl px-4">
                     <div class="group relative py-4">
