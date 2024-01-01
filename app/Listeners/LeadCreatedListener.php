@@ -5,6 +5,7 @@ namespace App\Listeners;
 
 use App\Events\LeadCreatedEvent;
 
+use App\Utils\SendSms;
 use App\Utils\TelegramBot;
 
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -26,6 +27,11 @@ class LeadCreatedListener implements ShouldQueue
      */
     public function handle(LeadCreatedEvent $event)
     {
+        (new SendSms())
+        ->send(
+            to: config('services.advanta.phone'),
+            text: $event->message
+        )
 
         (new TelegramBot())->sendMessage($event->message);
 

@@ -31,6 +31,10 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'advanta' => [
+        'phone' => env('PHONE_NUMBER'),
+
+    ],
     'google' => [
         'key' => env('GOOGLE_APIKEY'),
         'place_name' => env('GOOGLE_PLACE_NAME'),
