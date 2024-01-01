@@ -111,9 +111,16 @@ class BookSiteVisit extends Component implements HasForms
                 (new SendSms())
                     ->send(
                         to: config('services.advanta.phone'),
-                        text: $data['phone_number']
+                        text: $message
                     );
 
+                $clientMessage =  "Dear: {$data['name']}, We have received your book site visit request, One of RMs will contact soon. Thank You";
+
+                (new SendSms())
+                    ->send(
+                        to: config('services.advanta.phone'),
+                        text: $clientMessage
+                    );
                 event(new LeadCreatedEvent(
                     lead: $lead,
                     branch: $branch,
