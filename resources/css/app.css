@@ -48,17 +48,10 @@
     }
 
     .prose :where(h3):not(:where([class~="not-prose"] *)) {
-        color: #145359;
-        font-weight: 600;
-        font-size: 1.25em;
-        margin-top: 1.6em;
-        margin-bottom: 0.6em;
-        line-height: 1.6;
+       @apply text-primary-600 font-bold uppercase font-extrabold text-2xl lg:text-3xl
     }
     .prose :where(a):not(:where([class~="not-prose"] *)) {
-        color: #145359;
-        text-decoration: underline;
-        font-weight: 500;
+        @apply text-primary-600 font-bold uppercase
     }
 
     .button{
