@@ -5,7 +5,7 @@
                 <div class="relative w-full">
                     <img src="{{ \Illuminate\Support\Facades\Storage::url($blog->featured_image) }}"
                          alt="{{ $blog->title }}"
-                         class="md:h-[300px] w-full object-cover ">
+                         class="md:h-[200px] w-full object-cover ">
                 </div>
                 <div class="max-w-xl px-4">
                     <div class="group relative py-4">
