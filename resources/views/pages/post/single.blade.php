@@ -20,7 +20,7 @@
             </div>
         </div>
 
-        <div class="md:max-w-7xl  grid grid-cols-1 md:grid-cols-3 gap-4 px-4 md:px-8 prose  lg:prose-lg">
+        <div class="md:max-w-7xl  grid grid-cols-1 gap-4 px-4 md:px-8 prose  lg:prose-lg">
 
 
             <div class="col-span-2 md:mx-4 ">
@@ -35,7 +35,7 @@
 
                 </article>
             </div>
-            <div class="md:col-span-1 md:mx-2">
+            <div class="md:col-span-1 md:mx-2 hidden">
 
                 <div class="">
                     <livewire:contact.book-site-visit/>
