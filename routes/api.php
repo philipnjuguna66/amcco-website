@@ -77,9 +77,9 @@ Route::get('projects', function () {
                         'visibility' => 'public'
                     ]);
 
-                    $projectData['gallery'] = "properties". DIRECTORY_SEPARATOR. $name;
-
-
+                    $projectData['gallery'] =  [
+                        "properties". DIRECTORY_SEPARATOR. $name
+                    ];
                 }
 
                 /** @var Project $project */
