@@ -371,10 +371,10 @@ Route::get("/test", function (){
         Blog::all()->each(function (Blog $blog) {
             return event(new BlogCreatedEvent($blog));
         });
-        \App\Models\Page::all()->each(function (Blog $blog) {
+        \App\Models\Page::all()->each(function (\App\Models\Page $blog) {
             return event(new \App\Events\PageCreatedEvent($blog));
         });
-        Project::all()->each(function (Blog $blog) {
+        Project::all()->each(function (Project $blog) {
             return event(new \App\Events\BlogCreatedEvent($blog));
         });
     });
