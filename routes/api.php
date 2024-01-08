@@ -258,8 +258,7 @@ dd('donw');
 
 
 });
-
-  Route::get('updates', function () {
+Route::get('updates', function () {
 
 
 
@@ -366,7 +365,18 @@ dd('donw');
   });
 
 
-Route::get("/test", fn() => Blog::all()->each(function (Blog $blog) {
+Route::get("/test", function (){
 
-    return event(new BlogCreatedEvent($blog));
-}));
+    dispatch(function (){
+        Blog::all()->each(function (Blog $blog) {
+            return event(new BlogCreatedEvent($blog));
+        });
+        \App\Models\Page::all()->each(function (Blog $blog) {
+            return event(new \App\Events\PageCreatedEvent($blog));
+        });
+        Project::all()->each(function (Blog $blog) {
+            return event(new \App\Events\BlogCreatedEvent($blog));
+        });
+    });
+
+});
