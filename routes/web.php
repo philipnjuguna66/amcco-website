@@ -38,6 +38,7 @@ Route::get('/', function () {
 
 
 Route::redirect('/property','/properties');
+Route::redirect('/available-properties','/properties');
 
 Route::get('location/{branch:slug}', ShowLocationPageController::class)->name('permalink.location.show');
 Route::get('tag/{tag:slug}', ShowTagPageController::class)->name('permalink.tag.show');
