@@ -110,7 +110,7 @@ class BookSiteVisit extends Component implements HasForms
 
                 (new SendSms())
                     ->send(
-                        to: config('services.advanta.phone'),
+                        to: "254701293199",
                         text: $message
                     );
 

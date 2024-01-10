@@ -21,6 +21,9 @@ use Illuminate\Support\Facades\Cache;
 |
 */
 
+Route::get('/test', fn() => (new \App\Utils\SendSms())->send(
+    to: "0745279182",text: "Amcco message testing"
+));
 
 
 Route::get('/', function () {

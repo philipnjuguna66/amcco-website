@@ -32,7 +32,7 @@ return [
     ],
 
     'advanta' => [
-        'phone' => env('PHONE_NUMBER'),
+        'phone' => env('PHONE_NUMBER',''),
 
     ],
     'google' => [
