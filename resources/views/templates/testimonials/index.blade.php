@@ -14,13 +14,13 @@
             ?>
 
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-x-4 gap-y-3">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-x-4 gap-y-3">
 
                 @foreach($reviews as $places)
                     @php
                         $review = $places->review
                     @endphp
-                    <article class="py-2 bg-gray-800 rounded-md shadow-inner px-2">
+                    <article class="py-2 bg-gray-800 rounded-md shadow-inner px-2 md:h-[500px] md:overflow-y-scroll">
                         <div class="flex items-center mb-4">
 
                             @if(isset($review['profile_photo_url']))
