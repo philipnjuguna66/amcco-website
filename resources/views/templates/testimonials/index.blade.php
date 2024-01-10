@@ -7,7 +7,7 @@
             </div>
 
             <?php
-            $reviews =  \App\Models\Review::query()->take(3)->inRandomOrder()->get();
+            $reviews =  \App\Models\Review::query()->take(4)->inRandomOrder()->get();
 
             $place = \App\Models\ReviewSetting::query()->first();
 
@@ -20,7 +20,7 @@
                     @php
                         $review = $places->review
                     @endphp
-                    <article class="py-2 bg-gray-800 rounded-md shadow-inner px-2 md:h-[500px] md:overflow-y-scroll">
+                    <article class="py-2 bg-gray-800 rounded-md shadow-inner px-2 ">
                         <div class="flex items-center mb-4">
 
                             @if(isset($review['profile_photo_url']))
