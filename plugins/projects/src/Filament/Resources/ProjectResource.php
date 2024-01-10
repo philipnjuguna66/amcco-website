@@ -51,7 +51,7 @@ class ProjectResource extends Resource
                             Grid::make()->schema([
                                 TextInput::make('cta')
                                     ->label('cta')
-                                    ->hidden(fn($get) :bool =>  $get('use_page_builder'))
+                                    ->hidden(true)
                                     ->required()
                                     ->reactive()
                                     ->helperText("Send the word katani to 12334"),

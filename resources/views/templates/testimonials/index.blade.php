@@ -7,7 +7,7 @@
             </div>
 
             <?php
-            $reviews =  \App\Models\Review::query()->take(6)->inRandomOrder()->get();
+            $reviews =  \App\Models\Review::query()->take(3)->inRandomOrder()->get();
 
             $place = \App\Models\ReviewSetting::query()->first();
 
