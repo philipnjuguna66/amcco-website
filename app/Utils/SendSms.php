@@ -18,7 +18,7 @@ class SendSms{
     public function __construct(public  ?Carbon $timeToSend = null)
     {
 
-        $this->partnerID =  env('PARTNER_ID');
+        $this->partnerID = (int) env('PARTNER_ID');
         $this->apikey =  env('API_KEY');
         $this->shortcode = env('SENDER_ID');
 
