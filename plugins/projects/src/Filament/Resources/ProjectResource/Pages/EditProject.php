@@ -80,7 +80,7 @@ class EditProject extends EditRecord
                 $projectData["gallery"] = $data['gallery'];
                 $projectData["video_path"] = $data['video_path'];
                 $projectData["map"] = $data['map'];
-                $projectData["cta"] = $data['cta'];
+                $projectData["cta"] = $data['cta'] ?? null;
             }
             else{
 
