@@ -110,7 +110,7 @@ class BookSiteVisit extends Component implements HasForms
 
                 (new SendSms())
                     ->send(
-                        to: "254701293199",
+                        to: env('PHONE_NUMBER'),
                         text: $message
                     );
 
