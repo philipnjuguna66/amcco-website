@@ -167,15 +167,21 @@ Route::get('posts', function (Request $request) {
 
             foreach ($data as $pro) {
 
-                $url = ((array)$pro->_embedded)['wp:featuredmedia'][0]->source_url;
+                $path = "";
 
-                $contents = file_get_contents($url);
-                $featured_image = substr($url, strrpos($url, '/') + 1);
+                if (isset(((array)$pro->_embedded)['wp:featuredmedia'][0]))
+                {
 
-                $path = "blogs". DIRECTORY_SEPARATOR. "featured". DIRECTORY_SEPARATOR . $featured_image;
-                Storage::disk('public')->put($path,  $contents, [
-                    'visibility' => 'public'
-                ]);
+                    $url = ((array)$pro->_embedded)['wp:featuredmedia'][0]->source_url;
+
+                    $contents = file_get_contents($url);
+                    $featured_image = substr($url, strrpos($url, '/') + 1);
+
+                    $path = "blogs". DIRECTORY_SEPARATOR. "featured". DIRECTORY_SEPARATOR . $featured_image;
+                    Storage::disk('public')->put($path,  $contents, [
+                        'visibility' => 'public'
+                    ]);
+                }
 
 
 
