@@ -350,7 +350,7 @@ Route::get('media', function (Request $request) {
 
       dispatch(function () use ( $page){
 
-          $response = Http::get("https://www.optiven.co.ke/wp-json/wp/v2/media/?_embed&per_page=100&page=$page");
+          $response = Http::get("https://www.amccopropertiesltd.co.ke/wp-json/wp/v2/media/?_embed&per_page=100&page=$page");
           if ($response->ok())
           {
               $data  = $response->object();
