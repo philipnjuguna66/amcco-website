@@ -46,7 +46,7 @@ return [
 
         'wp' => [
             'driver' => 'local',
-            'root' => storage_path('app/public/wp-admin'),
+            'root' => storage_path('app/public/'),
             'url' => env('APP_URL'),
             'visibility' => 'public',
             'throw' => false,
