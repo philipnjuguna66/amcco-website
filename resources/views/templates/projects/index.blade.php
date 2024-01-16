@@ -2,7 +2,7 @@
     <div class="md:mx-auto max-w-7xl px-2 lg:px-8">
         <div class="mx-auto max-w-5xl text-center">
             <h1 class="text-2xl  md:text-5xl font-bold tracking-tight"> {{ str($section->extra['heading'])->toHtmlString() }}</h1>
-            <p class="py-3 text-lg leading-8 text-gray-600">{{ str($section->extra['subheading'])->toHtmlString() }}.</p>
+            <p class="py-3 text-lg leading-8 text-gray-600">{{ str($section->extra['subheading'])->toHtmlString() }}</p>
 
         </div>
         <livewire:project.website.list-project :take="$section->extra['count']"/>
