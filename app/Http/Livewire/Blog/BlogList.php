@@ -47,7 +47,7 @@ class BlogList extends Component
         }
 
         return view('livewire.blog.blog-list')->with([
-            'blogs' => $blogs->simplePaginate($this->take ?? 6),
+            'blogs' => $blogs->paginate($this->take ?? 6),
         ]);
     }
 }
