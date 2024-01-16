@@ -2,3 +2,4 @@
 !public/
 !.gitignore
 properties
+public/wp-content
