@@ -160,7 +160,7 @@ Route::get('posts', function () {
 
     dispatch(function (){
 
-        $response = Http::get("https://amccopropertiesltd.co.ke/wp-json/wp/v2/posts?_embed&fields=id,title,content&per_page=100");
+        $response = Http::get("https://amccopropertiesltd.co.ke/posts.json");
 
         if ($response->ok())
         {
