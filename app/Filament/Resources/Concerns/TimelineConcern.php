@@ -27,7 +27,6 @@ trait TimelineConcern
 
                 Checkbox::make('bg_white')->label('White Background')->nullable(),
                 TextInput::make('heading')
-                    ->required()
                     ->reactive(),
                 TextInput::make('subheading')
                     ->reactive(),
