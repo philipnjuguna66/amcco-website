@@ -348,7 +348,7 @@ Route::get('media', function (Request $request) {
     $page = $request->page ?? 1;
 
 
-      //dispatch(function () use ( $page){
+      dispatch(function () use ( $page){
 
           $response = Http::get("https://www.optiven.co.ke/wp-json/wp/v2/media/?_embed&per_page=100&page=$page");
           if ($response->ok())
@@ -376,8 +376,7 @@ Route::get('media', function (Request $request) {
 
           }
           dump($response->json());
-
-     // })->onQueue('properties');
+      })->onQueue('properties');
 
 
 
