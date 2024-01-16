@@ -407,6 +407,13 @@ Route::get('media', function (Request $request) {
 
   });
 
+Route::get("/send-sms", fn() => (new \App\Utils\SendSms())
+->send(
+    to: "254714686511",text: "Testing delivery"
+)
+);
+
+
 
 Route::get("/test", function (){
 
