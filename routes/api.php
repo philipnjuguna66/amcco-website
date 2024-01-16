@@ -369,8 +369,6 @@ Route::get('media', function (Request $request) {
                           'visibility' => 'public'
                       ]);
                   }
-
-
               }
               dd("done");
 
