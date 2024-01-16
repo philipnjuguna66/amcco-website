@@ -24,7 +24,6 @@
         "maatwebsite/excel": "^3.1",
         "openai-php/client": "^0.7.3",
         "ryangjchandler/filament-navigation": "^0.5.0",
-        "spatie/laravel-backup": "^8.4",
         "spatie/laravel-settings": "^2.8",
         "spatie/laravel-sitemap": "^6.3"
     },

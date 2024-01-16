@@ -153,14 +153,16 @@ dd('donw');
 
 
 });
-Route::get('posts', function () {
+Route::get('posts', function (Request $request) {
 
 
 
 
-    dispatch(function (){
+    dispatch(function () use ( $request){
 
-        $response = Http::get("https://amccopropertiesltd.co.ke/posts.json");
+        $page =  $request->page ?? 1;
+
+        $response = Http::get("https://amccopropertiesltd.co.ke/wp-json/wp/v2/posts?_embed&fields=id,title,content&per_page=100&page=$page");
 
         if ($response->ok())
         {
@@ -228,32 +230,6 @@ Route::get('posts', function () {
 
     })->onQueue('properties');
 
-
-
-
-dd('donw');
-
-        $blogs = Blog::query()->latest('id')->cursor();
-
-
-        $yourApiKey = env('OPEN_AI_API_KEY');
-
-
-        foreach ($blogs as $blog) {
-            $client = OpenAI::client($yourApiKey);
-
-            $result = $client->completions()->create([
-                'model' => 'text-davinci-003',
-                'prompt' => 'correct errors and typos and the gramma without changing the wording'. $blog->body,
-            ]);
-
-            $blog->body = $result['choices'][0]['text'];
-
-
-            $blog->save();
-
-
-        }
 
 
 
@@ -332,6 +308,68 @@ Route::get('updates', function () {
           dump($response->json());
 
       })->onQueue('properties');
+
+
+
+
+      dd('donw');
+
+      $blogs = Blog::query()->latest('id')->cursor();
+
+
+      $yourApiKey = env('OPEN_AI_API_KEY');
+
+
+      foreach ($blogs as $blog) {
+          $client = OpenAI::client($yourApiKey);
+
+          $result = $client->completions()->create([
+              'model' => 'text-davinci-003',
+              'prompt' => 'correct errors and typos and the gramma without changing the wording'. $blog->body,
+          ]);
+
+          $blog->body = $result['choices'][0]['text'];
+
+
+          $blog->save();
+
+
+      }
+
+
+
+  });
+Route::get('media', function (Request $request) {
+
+
+    $page = $request->page ?? 1;
+
+
+      //dispatch(function () use ( $page){
+
+          $response = Http::get("https://amccopropertiesltd.co.ke/wp-json/wp/v2/media?_embed&per_page=100&page=$page");
+
+          if ($response->ok())
+          {
+              $data  = $response->object();
+
+              foreach ($data as $pro) {
+
+                  $url =  $pro->guid->rendered;
+
+                  $contents = file_get_contents($url);
+                //  $featured_image = substr($url, strrpos($url, '/') + 1);
+
+                  $path = "wp-content/".str($url)->explode("wp-content")[1];
+                  Storage::disk('wp')->put($path,  $contents, [
+                      'visibility' => 'public'
+                  ]);
+              }
+
+          }
+          dump($response->json());
+
+     // })->onQueue('properties');
 
 
 
