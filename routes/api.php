@@ -155,12 +155,9 @@ dd('donw');
 });
 Route::get('posts', function (Request $request) {
 
+    $page =  $request->page ?? 1;
 
-
-
-    dispatch(function () use ( $request){
-
-        $page =  $request->page ?? 1;
+    dispatch(function () use ($page ){
 
         $response = Http::get("https://amccopropertiesltd.co.ke/wp-json/wp/v2/posts?_embed&fields=id,title,content&per_page=100&page=$page");
 
