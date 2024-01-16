@@ -350,24 +350,29 @@ Route::get('media', function (Request $request) {
 
       //dispatch(function () use ( $page){
 
-          $response = Http::get("https://amccopropertiesltd.co.ke/wp-json/wp/v2/media?_embed&per_page=100&page=$page");
-
+          $response = Http::get("https://www.optiven.co.ke/wp-json/wp/v2/media/?_embed&per_page=100&page=$page");
           if ($response->ok())
           {
               $data  = $response->object();
 
               foreach ($data as $pro) {
 
-                  $url =  $pro->guid->rendered;
+                  foreach ($pro->media_details->sizes as $index =>  $size)
+                  {
+                      $url =  $size->source_url;
 
-                  $contents = file_get_contents($url);
-                //  $featured_image = substr($url, strrpos($url, '/') + 1);
+                      $contents = file_get_contents($url);
+                      //  $featured_image = substr($url, strrpos($url, '/') + 1);
 
-                  $path = "wp-content/".str($url)->explode("wp-content")[1];
-                  Storage::disk('wp')->put($path,  $contents, [
-                      'visibility' => 'public'
-                  ]);
+                      $path = "wp-content/".str($url)->explode("wp-content")[1];
+                      Storage::disk('wp')->put($path,  $contents, [
+                          'visibility' => 'public'
+                      ]);
+                  }
+
+
               }
+              dd("done");
 
           }
           dump($response->json());
