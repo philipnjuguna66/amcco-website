@@ -61,6 +61,7 @@ class BlogResource extends Resource
                     'lg' => 8,
                 ]),
 
+
                 Forms\Components\Group::make([
                     Forms\Components\Section::make('SEO Settings')
                       ->schema([
