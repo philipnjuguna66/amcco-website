@@ -3,6 +3,7 @@
 namespace Appsorigin\Blog\Filament\Resources;
 
 
+use App\Forms\Components\CKEditor;
 use App\Utils\Enums\BlogTypeEnum;
 use Appsorigin\Blog\Filament\Resources\BlogResource\Pages\CreateBlog;
 use Appsorigin\Blog\Filament\Resources\BlogResource\Pages\EditBlog;
@@ -50,7 +51,7 @@ class BlogResource extends Resource
                                 return $options;
                             })
                             ->searchable(),
-                        Forms\Components\RichEditor::make('body')
+                        CKEditor::make('body')
                             ->required(),
                         Forms\Components\Toggle::make('is_published')
                             ->required(),
