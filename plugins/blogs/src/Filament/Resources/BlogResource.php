@@ -17,6 +17,7 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use Filament\Tables\Actions\ReplicateAction;
 use JKHarley\FilamentTrumbowyg\Trumbowyg;
+use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
 
 class BlogResource extends Resource
 {
@@ -50,7 +51,7 @@ class BlogResource extends Resource
                                 return $options;
                             })
                             ->searchable(),
-                        Forms\Components\RichEditor::make('body')
+                        TinyEditor::make('body')
                             ->required(),
                         Forms\Components\Toggle::make('is_published')
                             ->required(),
