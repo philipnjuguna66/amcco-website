@@ -17,7 +17,6 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use Filament\Tables\Actions\ReplicateAction;
 use JKHarley\FilamentTrumbowyg\Trumbowyg;
-use Mohamedsabil83\FilamentFormsTinyeditor\Components\TinyEditor;
 
 class BlogResource extends Resource
 {
@@ -51,7 +50,7 @@ class BlogResource extends Resource
                                 return $options;
                             })
                             ->searchable(),
-                        TinyEditor::make('body')
+                        Forms\Components\RichEditor::make('body')
                             ->required(),
                         Forms\Components\Toggle::make('is_published')
                             ->required(),
@@ -60,7 +59,6 @@ class BlogResource extends Resource
                     12,
                     'lg' => 8,
                 ]),
-
 
                 Forms\Components\Group::make([
                     Forms\Components\Section::make('SEO Settings')
