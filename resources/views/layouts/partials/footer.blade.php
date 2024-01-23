@@ -20,7 +20,7 @@
                             </div>
                             @endif
                                 @if($footerSection['type'] == "list")
-                                    <div class="">
+                                    <div class="px-4">
 
                                         <div class="">
 
