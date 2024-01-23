@@ -60,7 +60,7 @@ class ManageFooter extends SettingsPage
                 Builder\Block::make('text')
                 ->schema([
                     TextInput::make('heading'),
-                    TextInput::make('content')->maxLength(500),
+                    Textarea::make('content')->maxLength(500),
                     FileUpload::make('logo')->preserveFilenames(),
 
                 ]),
