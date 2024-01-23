@@ -13,8 +13,8 @@
                                          alt="Ammco Properties">
                                 @endif
 
-                                <h3 class=" font-semibold leading-6 text-white">{{ $footerSection['data']['heading'] }}</h3>
-                                <span class=" leading-6 @if(isset($footerSection['data']['logo'])) mt-12 @endif prose text-white">
+                                <h3 class="leading-6 text-white">{{ $footerSection['data']['heading'] }}</h3>
+                                <span class=" leading-6 @if(isset($footerSection['data']['logo'])) mt-12 @endif  text-white">
                                   {{ str($footerSection['data']['content'])->toHtmlString() }}
                                 </span>
                             </div>
