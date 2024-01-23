@@ -1,7 +1,7 @@
 <footer class="bg-primary-900" aria-labelledby="footer-heading">
     <h2 id="footer-heading" class="sr-only">Footer</h2>
-    <div class="mx-auto md:w-4/5 max-w-8xl px-6 lg:px-8 py-12">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-x-2 justify-between gap-y-4">
+    <div class="mx-auto md:w-4/5 max-w-7xl px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-x-2 gap-y-4">
             @if(isset(app(\App\Settings\FooterSettings::class)->sections  ) && is_array(app(\App\Settings\FooterSettings::class)->sections))
                 @foreach(app(\App\Settings\FooterSettings::class)->sections as $footerSection)
                         <div class="">
@@ -10,17 +10,17 @@
                                 @if(isset($footerSection['data']['logo']))
                                     <img class="h-auto"
                                          src="{{ \Illuminate\Support\Facades\Storage::url($footerSection['data']['logo']) }}"
-                                         alt="Company name">
+                                         alt="AMCCO Properties">
                                 @endif
 
                                 <h3 class=" font-semibold leading-6 text-white">{{ $footerSection['data']['heading'] }}</h3>
-                                <span class=" leading-6 @if(isset($footerSection['data']['logo'])) mt-12 @endif prose text-white">
+                                <span class="md:mx-auto  leading-6 @if(isset($footerSection['data']['logo'])) mt-12 @endif prose text-white">
                                   {{ str($footerSection['data']['content'])->toHtmlString() }}
                                 </span>
                             </div>
                             @endif
                                 @if($footerSection['type'] == "list")
-                                    <div class="">
+
 
                                         <div class="">
 
@@ -44,7 +44,7 @@
                                             </ul>
 
                                         </div>
-                                    </div>
+
                                 @endif
                         </div>
 

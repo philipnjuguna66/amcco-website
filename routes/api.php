@@ -411,6 +411,11 @@ Route::get('media', function (Request $request) {
 
 Route::get("/test", function (){
 
+    return \App\Forms\Components\CKEditor::make('test');
+
+
+
+
     dispatch(function (){
 
         Blog::all()->each(function (Blog $blog) {

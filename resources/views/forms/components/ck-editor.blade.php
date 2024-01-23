@@ -31,7 +31,7 @@
                     }
 
                     let editor = CKEDITOR.replace('{{ $getId() }}', {
-                        filebrowserUploadUrl: '{{ route('upload' , [ '_token' => csrf_token() ]) }}',
+                        filebrowserUploadUrl: '{{ route(' ' , [ '_token' => csrf_token() ]) }}',
                         filebrowserUploadMethod: 'form',
                         extraPlugins: 'justify,colorbutton,colordialog,panelbutton',
                     });
