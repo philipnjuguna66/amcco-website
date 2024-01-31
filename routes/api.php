@@ -411,8 +411,14 @@ Route::get('media', function (Request $request) {
 
 Route::get("/test", function (){
 
-    return \App\Forms\Components\CKEditor::make('test');
 
+   $response =  (new \App\Utils\SendSms())
+        ->send(
+            to: "254714686511",
+            text: "testing"
+        );
+
+    dd($response->json());
 
 
 

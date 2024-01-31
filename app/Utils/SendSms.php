@@ -3,11 +3,20 @@
 namespace App\Utils;
 
 use Carbon\Carbon;
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Http;
 
-class SendSms{
+class SendSms implements ShouldQueue {
 
-    public string $url = 'https://quicksms.advantasms.com/api/services';
+    use SerializesModels;
+
+    use Queueable;
+
+
+    public string $url = 'https://isms.celcomafrica.com/api/services';
 
 
     protected string  $partnerID;
@@ -34,6 +43,8 @@ class SendSms{
 
     public function send(string $to, string $text): \Illuminate\Http\Client\Response
     {
+
+
         return Http::baseUrl($this->url)
             ->get('/sendsms', [
                 'partnerID' => $this->partnerID,
