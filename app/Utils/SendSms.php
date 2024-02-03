@@ -44,7 +44,6 @@ class SendSms implements ShouldQueue {
     public function send(string $to, string $text): \Illuminate\Http\Client\Response
     {
 
-
         return Http::baseUrl($this->url)
             ->get('/sendsms', [
                 'partnerID' => $this->partnerID,
