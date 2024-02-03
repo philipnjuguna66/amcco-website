@@ -60,7 +60,8 @@ class PageResource extends Resource
                         ->label(fn (): string => Page::query()->where('is_front_page', true)->count() ? 'Front Page defined' : 'Is front Page')
                         ->disabled(fn (): bool => Page::query()->where('is_front_page', true)->count()),
                     TextInput::make('meta_title')->required()->unique(ignoreRecord: true),
-                    Textarea::make('meta_description')->unique(ignoreRecord: true)->helperText("max: 160 characters"),
+                    Textarea::make('meta_description')
+                        ->unique(ignoreRecord: true)->helperText("max: 160 characters"),
 
                 ]),
 
