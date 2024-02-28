@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Concerns;
 
+use App\Models\Permalink;
 use Filament\Forms\Components\Builder\Block;
 use Filament\Forms\Components\Checkbox;
 use Filament\Forms\Components\FileUpload;
@@ -122,6 +123,24 @@ trait HeroImageSectionConcern
                                                 ->schema([
                                                     Checkbox::make('has_border_bottom'),
                                                     RichEditor::make('body'),
+                                                ]),
+                                            Block::make('links')
+                                                ->schema([
+                                                    Select::make('url')
+                                                        ->options(function (): array {
+
+                                                            $options = [];
+
+                                                            foreach (Permalink::query()->whereType('page')->cursor() as $link) {
+
+                                                                $options[$link->slug] = $link->linkable?->name;
+
+                                                            }
+
+                                                            return $options;
+                                                        })
+                                                        ->searchable(),
+                                                    TextInput::make('body'),
                                                 ]),
                                            // $this->masonaryBlocks(),
                                         ])
