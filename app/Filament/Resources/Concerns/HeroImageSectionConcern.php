@@ -131,7 +131,10 @@ trait HeroImageSectionConcern
 
                                                             $options = [];
 
-                                                            foreach (Permalink::query()->whereType('page')->cursor() as $link) {
+                                                            foreach (Permalink::query()->whereTypeIn([
+                                                                'page',
+                                                                'post'
+                                                            ])->cursor() as $link) {
 
                                                                 $options[$link->slug] = $link->linkable?->name;
 
