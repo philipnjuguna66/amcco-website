@@ -131,7 +131,7 @@ trait HeroImageSectionConcern
 
                                                             $options = [];
 
-                                                            foreach (Permalink::query()->whereTypeIn([
+                                                            foreach (Permalink::query()->whereIn('type',[
                                                                 'page',
                                                                 'post'
                                                             ])->cursor() as $link) {
