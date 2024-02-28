@@ -5,7 +5,6 @@
 
     <form
         method="post"
-        id="book-site-visit"
         class="filament-form font-extrabold"
         wire:submit.prevent="bookVisit"
     >
