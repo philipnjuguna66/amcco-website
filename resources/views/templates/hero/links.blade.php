@@ -6,7 +6,8 @@
                     href="{{ route('permalink.show', $link['url']) }}"
                     class="button bg-secondary-600 hover:bg-primary-600"
                 >
-                    {{ $link['label'] }}<span aria-hidden="true">→</span></a>
+                    {{ $link['label'] }}<span aria-hidden="true">→</span>
+                </a>
             </div>
         </div>
     </div>

@@ -26,7 +26,7 @@
                                     "text_area" => view('templates.hero._text_area', ['html' => $column['data']['body'], 'hasBorderColor' => $column['data']['has_border_bottom'] ?? false])->render(),
                                     "sliders" => view('templates.hero._slider', ['sliders' => $column['data']['images'], 'page' => $page])->render(),
                                     "masonary_block" => view('templates.hero.masionary', ['masonrySections' => $column['data']['masonary_block'], 'page' => $page])->render(),
-                                    "links" => view('templates.hero.links', ['link' => $column['data']['links'], 'page' => $page])->render(),
+                                    "links" => view('templates.hero.links', ['link' => ['url' => $column['data']['url'], 'label' => $column['data']['label']], 'page' => $page])->render(),
                                     "default" => null,
                                 };
                                 ?>
