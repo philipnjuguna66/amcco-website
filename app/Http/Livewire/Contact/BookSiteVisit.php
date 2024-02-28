@@ -38,8 +38,15 @@ class BookSiteVisit extends Component implements HasForms
 
     public $page = null;
 
-    public string $title = "Book A Free Site Visit";
+    public string $title;
 
+    public function mount()
+    {
+        if (blank($this->title))
+        {
+            $this->title =  "Book A Free Site Visit";
+        }
+    }
     protected function getFormSchema(): array
     {
 
