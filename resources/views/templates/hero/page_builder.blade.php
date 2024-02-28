@@ -2,7 +2,14 @@
     <div class="md:mx-auto md:w-4/5 max-w-7xl px-2 lg:px-8">
 
         <div class="mx-auto max-w-5xl text-center">
-            <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">{{ $section->extra['heading'] ?? null }}</h1>
+
+            @if($loop->parent->first)
+                <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">{{ $section->extra['heading'] ?? null }}</h1>
+
+            @else
+                <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">{{ $section->extra['heading'] ?? null }}</h2>
+            @endif
+
 
         </div>
         <div class="md:mx-auto md:max-w-5xl md:text-center text-start">
