@@ -1,6 +1,8 @@
 <div class="font-extrabold bg-white shadow-2xl rounded-xl px-4 bg-gray-100  border-b-4 border-primary-600 border-primary-600">
 
-    <h3 class=" py-4 font-semibold text-xl md:text-3xl md:font-extrabold text-center px-2 text-red-600"> Book A Free Site Visit </h3>
+    <h3 class=" py-4 font-semibold text-xl md:text-3xl md:font-extrabold text-center px-2 text-red-600">
+        {{ $title }}
+    </h3>
 
 
     <form

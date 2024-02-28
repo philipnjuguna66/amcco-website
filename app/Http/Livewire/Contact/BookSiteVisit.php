@@ -33,9 +33,12 @@ class BookSiteVisit extends Component implements HasForms
     public $project;
 
     public $branch;
+
     public $phone_number;
 
     public $page = null;
+
+    public string $title = "Book A Free Site Visit";
 
     protected function getFormSchema(): array
     {

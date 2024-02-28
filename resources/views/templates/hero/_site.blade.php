@@ -1,3 +1,3 @@
 <div>
-    <livewire:contact.book-site-visit/>
+    <livewire:contact.book-site-visit title="{{ $title ?? null  }}"/>
 </div>

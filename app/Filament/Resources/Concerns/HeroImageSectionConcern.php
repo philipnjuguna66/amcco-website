@@ -117,7 +117,7 @@ trait HeroImageSectionConcern
                                                 ]),
                                             Block::make('booking_form')
                                                 ->schema([
-                                                    Checkbox::make('has_contact_form'),
+                                                    TextInput::make('title'),
                                                 ]),
                                             Block::make('text_area')
                                                 ->schema([
