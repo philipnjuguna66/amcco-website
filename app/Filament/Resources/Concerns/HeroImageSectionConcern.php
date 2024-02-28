@@ -140,7 +140,7 @@ trait HeroImageSectionConcern
                                                             return $options;
                                                         })
                                                         ->searchable(),
-                                                    TextInput::make('body'),
+                                                    TextInput::make('label'),
                                                 ]),
                                            // $this->masonaryBlocks(),
                                         ])
