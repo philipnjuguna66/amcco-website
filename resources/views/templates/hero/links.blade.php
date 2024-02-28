@@ -4,7 +4,7 @@
             <div class="mt-10 flex items-center justify-center gap-x-6">
                 <a
                     href="{{ route('permalink.show', $link['url']) }}"
-                    class="button bg-secondary-600 hover:bg-primary-600 hover:text-white decoration-none">
+                    class="button bg-secondary-600 hover:bg-primary-600 hover:text-white no-underline	hover:ease-in-out duration-300 transition ">
                     {{ $link['label'] }}
                     <span aria-hidden="true">→</span></a>
             </div>
