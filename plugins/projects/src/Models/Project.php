@@ -26,7 +26,6 @@ class Project extends Model  implements Sitemapable
         'extra' => 'json'
     ];
 
-
     public function toSitemapTag(): Url | string | array
     {
         // Return with fine-grained control:
