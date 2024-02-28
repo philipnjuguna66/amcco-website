@@ -108,19 +108,21 @@ class BookSiteVisit extends Component implements HasForms
                 throw  new \Exception("Phone Number no valid");
             }
 
-            (new SendSms())
-                ->send(
-                    to: env('PHONE_NUMBER'),
-                    text: $message
-                );
+           dispatch(fn() =>  (new SendSms())
+               ->send(
+                   to: env('PHONE_NUMBER'),
+                   text: $message
+               ))
+           ->afterResponse();
 
             $clientMessage =  "Dear: {$data['name']}, We have received your book site visit request, One of RMs will contact soon. Thank You";
 
-            (new SendSms())
+            dispatch(fn() => (new SendSms())
                 ->send(
                     to: $data['phone_number'],
                     text: $clientMessage
-                );
+                )
+            )->afterResponse();
 
             if (! Lead::query()->whereDate('created_at', Carbon::today())->where('phone_number', $data['phone_number'])->exists())
             {
