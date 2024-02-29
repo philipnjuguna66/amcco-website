@@ -38,7 +38,7 @@ class BookSiteVisit extends Component implements HasForms
 
     public $page = null;
 
-    public string $title;
+    public string $title= "";
 
     public function mount()
     {
