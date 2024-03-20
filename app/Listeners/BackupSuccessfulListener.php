@@ -16,7 +16,7 @@ class BackupSuccessfulListener
 
         $backupFileName = $event->backupDestination->backupName();
 
-        $emailTo = "philnjugunah+fanaka_website_backup_db@gmail.com";
+        $emailTo = "philnjugunah+amcc_website_backup_db@gmail.com";
         $emailFrom = "philipnjuguna66@gmail.com";
 
         Mail::raw("Database backup", fn($message) => $message->to($emailTo)
