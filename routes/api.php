@@ -386,4 +386,4 @@ Route::get("/test", function () {
 });
 
 
-Route::get('/v1/google-leads', GoogleAdsLeads::class);
+Route::any('/v1/google-leads', GoogleAdsLeads::class);
