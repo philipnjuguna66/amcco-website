@@ -10,6 +10,7 @@ class GoogleAdsLeads
     public function __invoke(Request $request)
     {
 
+
         if ($request->google_key == env('GOOGLE_ADS_KEY'))
         {
             $userColumns = $request['user_column_data'];
@@ -66,8 +67,6 @@ class GoogleAdsLeads
             ->json([
                 'status' => "ok"
             ], 200);
-
-
     }
 
 }
