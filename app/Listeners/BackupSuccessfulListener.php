@@ -22,7 +22,7 @@ class BackupSuccessfulListener
         Mail::raw("Database backup", fn($message) => $message->to($emailTo)
             ->from($emailFrom)
             ->cc([
-                "virtualtech.ke@gmail.com"
+                "muturiresearch@gmail.com"
             ])
             ->subject('Website Database Backup')
             ->attach($backupPath, ['as' => $backupFileName.".zip"])
