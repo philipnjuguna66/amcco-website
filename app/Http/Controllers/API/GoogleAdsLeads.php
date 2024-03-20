@@ -24,9 +24,9 @@ class GoogleAdsLeads
 
             $clientName = "";
 
+            $clientMessage = "";
+
             foreach ($userColumns as $userColumn) {
-
-
 
                 if ($userColumn['column_id'] === "PHONE_NUMBER")
                 {
@@ -38,26 +38,13 @@ class GoogleAdsLeads
                     $clientName = $userColumn['string_value'];
                 }
 
-
                 $message .= ' From ' . $clientName. ' Phone Number-: ' .  $clientTel;
-
-
-
-
-
-                dispatch(fn() =>  (new SendSms())
-                    ->send(
-                        to: env('PHONE_NUMBER'),
-                        text: $message
-                    ))
-                    ->afterResponse();
-
 
                 $clientMessage =  "Dear: {$clientName}, We have received your book site visit request, One of RMs will contact soon. Thank You";
 
+            }
 
-
-                /*
+            /*
 
                 /*dispatch(fn() => (new SendSms())
                     ->send(
@@ -67,26 +54,27 @@ class GoogleAdsLeads
                 )->afterResponse();*/
 
 
+            $lead = Lead::create([
+                'name' => $clientName,
+                'phone_number' => $clientTel,
+                'date' => new Carbon(),
+                'page' => "GOOGLE_ADS_LEADS"
+            ]);
 
-                $lead = Lead::create([
-                    'name' => $clientName,
-                    'phone_number' => $clientTel,
-                    'date' => new Carbon(),
-                    'page' => "GOOGLE_ADS_LEADS"
-                ]);
+            event(new LeadCreatedEvent(
+                lead: $lead,
+                branch: $lead->page,
+                phone: $clientTel,
+                name: $clientName,
+                message: $clientMessage,
+            ));
 
-                event(new LeadCreatedEvent(
-                    lead: $lead,
-                    branch: $lead->page,
-                    phone: $clientTel,
-                    name: $clientName,
-                    message: $clientMessage,
-                ));
-
-
-
-
-            }
+            dispatch(fn() =>  (new SendSms())
+                ->send(
+                    to: env('PHONE_NUMBER'),
+                    text: $message
+                ))
+                ->afterResponse();
 
 
             return response()
