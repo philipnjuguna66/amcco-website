@@ -56,6 +56,8 @@ class GoogleAdsLeads
                 )->afterResponse();
 
 
+                return response()
+                    ->json(['status' => 'success'], 200);
 
             }
 
@@ -63,10 +65,9 @@ class GoogleAdsLeads
 
         }
 
+
         return response()
-            ->json([
-                'status' => "ok"
-            ], 200);
+            ->json(['status' => 'success'], 200);
     }
 
 }
