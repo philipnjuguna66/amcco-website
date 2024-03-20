@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Events\LeadCreatedEvent;
 use App\Utils\SendSms;
+use Appsorigin\Leads\Models\Lead;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class GoogleAdsLeads
@@ -49,8 +52,12 @@ class GoogleAdsLeads
                     ))
                     ->afterResponse();
 
-                /*
+
                 $clientMessage =  "Dear: {$clientName}, We have received your book site visit request, One of RMs will contact soon. Thank You";
+
+
+
+                /*
 
                 /*dispatch(fn() => (new SendSms())
                     ->send(
@@ -58,6 +65,23 @@ class GoogleAdsLeads
                         text: $clientMessage
                     )
                 )->afterResponse();*/
+
+
+
+                $lead = Lead::create([
+                    'name' => $clientName,
+                    'phone_number' => $clientTel,
+                    'date' => new Carbon(),
+                    'page' => "GOOGLE_ADS_LEADS"
+                ]);
+
+                event(new LeadCreatedEvent(
+                    lead: $lead,
+                    branch: $lead->page,
+                    phone: $clientTel,
+                    name: $clientName,
+                    message: $clientMessage,
+                ));
 
 
 
