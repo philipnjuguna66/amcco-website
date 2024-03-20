@@ -19,4 +19,5 @@ yarn-error.log
 /.vscode
 /public/sitemap.xml
 public/wp-content
+public/imgs
 public/imgs/FAVICON.pngZone.Identifier
