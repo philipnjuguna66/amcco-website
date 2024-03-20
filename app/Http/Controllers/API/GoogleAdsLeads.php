@@ -58,13 +58,15 @@ class GoogleAdsLeads
 
             }
 
-            return response()
-                ->json([
-                    'status' => "ok"
-                ], 200);
 
 
         }
+
+        return response()
+            ->json([
+                'status' => "ok"
+            ], 200);
+
 
     }
 
