@@ -13,7 +13,6 @@ class GoogleAdsLeads
     public function __invoke(Request $request)
     {
 
-
         if ($request->google_key == env('GOOGLE_ADS_KEY'))
         {
             $userColumns = $request['user_column_data'];
@@ -40,18 +39,17 @@ class GoogleAdsLeads
 
                 $message .= ' From ' . $clientName. ' Phone Number-: ' .  $clientTel;
 
-                $clientMessage =  "Dear: {$clientName}, We have received your book site visit request, One of RMs will contact soon. Thank You";
+                $clientMessage .=  "Dear: {$clientName}, We have received your book site visit request, One of RMs will contact soon. Thank You";
 
             }
 
-            /*
 
-                /*dispatch(fn() => (new SendSms())
+            dispatch(fn() => (new SendSms())
                     ->send(
                         to: $clientTel,
                         text: $clientMessage
                     )
-                )->afterResponse();*/
+                )->afterResponse();
 
 
             $lead = Lead::create([
