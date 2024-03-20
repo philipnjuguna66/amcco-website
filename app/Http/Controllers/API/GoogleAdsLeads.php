@@ -23,9 +23,11 @@ class GoogleAdsLeads
 
             foreach ($userColumns as $userColumn) {
 
+                dump($userColumn);
 
+                //"column_id": "PHONE_NUMBER"
 
-                if ($userColumn['column_id'] == "PHONE_NUMBER")
+                if ($userColumn['column_id'] === "PHONE_NUMBER")
                 {
                     $clientTel = $userColumn['string_value'];
                 }
@@ -39,21 +41,24 @@ class GoogleAdsLeads
                 $message .= ' From ' . $clientName. ' Phone Number-: ' .  $clientTel;
 
 
-                dispatch(fn() =>  (new SendSms())
+
+
+
+                /*dispatch(fn() =>  (new SendSms())
                     ->send(
                         to: env('PHONE_NUMBER'),
                         text: $message
                     ))
-                    ->afterResponse();
+                    ->afterResponse();*/
 
                 $clientMessage =  "Dear: {$clientName}, We have received your book site visit request, One of RMs will contact soon. Thank You";
 
-                dispatch(fn() => (new SendSms())
+                /*dispatch(fn() => (new SendSms())
                     ->send(
                         to: $clientTel,
                         text: $clientMessage
                     )
-                )->afterResponse();
+                )->afterResponse();*/
 
 
                 return response()
