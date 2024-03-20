@@ -1,31 +1,28 @@
-  <?php
+<?php
 
 use App\Events\BlogCreatedEvent;
-  use App\Http\Controllers\API\GoogleAdsLeads;
-  use Appsorigin\Blog\Models\Blog;
-  use Appsorigin\Plots\Models\Project;
-  use Appsorigin\Plots\Models\ProjectLocation;
-  use Illuminate\Http\Request;
+use App\Http\Controllers\API\GoogleAdsLeads;
+use Appsorigin\Blog\Models\Blog;
+use Appsorigin\Plots\Models\Project;
+use Appsorigin\Plots\Models\ProjectLocation;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
-  use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Storage;
 
-  Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
 Route::get('projects', function () {
 
 
-
-
-    dispatch(function (){
+    dispatch(function () {
 
         $response = Http::get("https://amccopropertiesltd.co.ke/wp-json/wp/v2/properties?_embed&fields=id,title,content&per_page=100");
 
-        if ($response->ok())
-        {
-            $data  = $response->object();
+        if ($response->ok()) {
+            $data = $response->object();
 
             foreach ($data as $pro) {
 
@@ -34,8 +31,8 @@ Route::get('projects', function () {
                 $contents = file_get_contents($url);
                 $featured_image = substr($url, strrpos($url, '/') + 1);
 
-                $path = "properties". DIRECTORY_SEPARATOR. "featured". DIRECTORY_SEPARATOR . $featured_image;
-                Storage::disk('public')->put($path,  $contents, [
+                $path = "properties" . DIRECTORY_SEPARATOR . "featured" . DIRECTORY_SEPARATOR . $featured_image;
+                Storage::disk('public')->put($path, $contents, [
                     'visibility' => 'public'
                 ]);
 
@@ -44,7 +41,7 @@ Route::get('projects', function () {
 
                     \Appsorigin\Plots\Models\Location::updateOrCreate([
                         'name' => $location
-                    ],[
+                    ], [
                         'slug' => str($location)->lower()->slug()->value()
                     ]);
 
@@ -59,27 +56,25 @@ Route::get('projects', function () {
                     'price' => $pro->custom_fields->price,
                     'meta_title' => $pro->title->rendered,
                     'meta_description' => str($pro->content->rendered)->limit('156')->value(),
-                     'location' => $pro->terms->location[0] ?? "Kikuyu",
-                     'purpose' => "residential",
-                    'featured_image' =>$path,
+                    'location' => $pro->terms->location[0] ?? "Kikuyu",
+                    'purpose' => "residential",
+                    'featured_image' => $path,
                     'amenities' => $pro->custom_fields->features,
                 ];
 
 
-
-
                 foreach ($pro->custom_fields->gallery as $gallery) {
 
-                    $url =  $gallery->url;
+                    $url = $gallery->url;
 
                     $contents = file_get_contents($url);
                     $name = substr($url, strrpos($url, '/') + 1);
-                    Storage::disk('public')->put("properties". DIRECTORY_SEPARATOR. $name, $contents,[
+                    Storage::disk('public')->put("properties" . DIRECTORY_SEPARATOR . $name, $contents, [
                         'visibility' => 'public'
                     ]);
 
-                    $projectData['gallery'] =  [
-                        "properties". DIRECTORY_SEPARATOR. $name
+                    $projectData['gallery'] = [
+                        "properties" . DIRECTORY_SEPARATOR . $name
                     ];
                 }
 
@@ -90,7 +85,6 @@ Route::get('projects', function () {
 
 
                 $project->link()->delete();
-
 
 
                 $project->link()->create([
@@ -118,88 +112,77 @@ Route::get('projects', function () {
             }
 
 
-
         }
         dump($response->json());
 
     })->onQueue('properties');
 
 
+    dd('donw');
+
+    $blogs = Blog::query()->latest('id')->cursor();
 
 
-dd('donw');
-
-        $blogs = Blog::query()->latest('id')->cursor();
+    $yourApiKey = env('OPEN_AI_API_KEY');
 
 
-        $yourApiKey = env('OPEN_AI_API_KEY');
+    foreach ($blogs as $blog) {
+        $client = OpenAI::client($yourApiKey);
+
+        $result = $client->completions()->create([
+            'model' => 'text-davinci-003',
+            'prompt' => 'correct errors and typos and the gramma without changing the wording' . $blog->body,
+        ]);
+
+        $blog->body = $result['choices'][0]['text'];
 
 
-        foreach ($blogs as $blog) {
-            $client = OpenAI::client($yourApiKey);
-
-            $result = $client->completions()->create([
-                'model' => 'text-davinci-003',
-                'prompt' => 'correct errors and typos and the gramma without changing the wording'. $blog->body,
-            ]);
-
-            $blog->body = $result['choices'][0]['text'];
+        $blog->save();
 
 
-            $blog->save();
-
-
-        }
-
+    }
 
 
 });
 Route::get('posts', function (Request $request) {
 
-    $page =  $request->page ?? 1;
+    $page = $request->page ?? 1;
 
-    dispatch(function () use ($page ){
+    dispatch(function () use ($page) {
 
         $response = Http::get("https://amccopropertiesltd.co.ke/wp-json/wp/v2/posts?_embed&fields=id,title,content&per_page=100&page=$page");
 
-        if ($response->ok())
-        {
-            $data  = $response->object();
+        if ($response->ok()) {
+            $data = $response->object();
 
             foreach ($data as $pro) {
 
                 $path = "";
 
-                if (isset(((array)$pro->_embedded)['wp:featuredmedia'][0]))
-                {
+                if (isset(((array)$pro->_embedded)['wp:featuredmedia'][0])) {
 
                     $url = ((array)$pro->_embedded)['wp:featuredmedia'][0]->source_url;
 
                     $contents = file_get_contents($url);
                     $featured_image = substr($url, strrpos($url, '/') + 1);
 
-                    $path = "blogs". DIRECTORY_SEPARATOR. "featured". DIRECTORY_SEPARATOR . $featured_image;
-                    Storage::disk('public')->put($path,  $contents, [
+                    $path = "blogs" . DIRECTORY_SEPARATOR . "featured" . DIRECTORY_SEPARATOR . $featured_image;
+                    Storage::disk('public')->put($path, $contents, [
                         'visibility' => 'public'
                     ]);
                 }
 
 
-
                 $projectData = [
                     'title' => $pro->title->rendered,
                     'is_published' => true,
-                    'body' => str($pro->content->rendered)->replace('<div>','')
+                    'body' => str($pro->content->rendered)->replace('<div>', '')
                         ->replace('</div>', '')->toHtmlString(),
                     'meta_title' => $pro->title->rendered,
                     'meta_description' => str($pro->excerpt->rendered)->limit('156')->value(),
-                    'featured_image' =>$path,
+                    'featured_image' => $path,
                     'type' => \App\Utils\Enums\BlogTypeEnum::POST,
                 ];
-
-
-
-
 
 
                 /** @var Blog $blog */
@@ -209,7 +192,6 @@ Route::get('posts', function (Request $request) {
 
 
                 $blog->link()->delete();
-
 
 
                 $blog->link()->create([
@@ -222,11 +204,9 @@ Route::get('posts', function (Request $request) {
                 $blog->saveQuietly();
 
 
-
                 event(new BlogCreatedEvent($blog));
 
             }
-
 
 
         }
@@ -235,184 +215,162 @@ Route::get('posts', function (Request $request) {
     })->onQueue('properties');
 
 
-
-
 });
 Route::get('updates', function () {
 
 
+    dispatch(function () {
+
+        $response = Http::get("https://amccopropertiesltd.co.ke/wp-json/wp/v2/event-updates?_embed&fields=id,title,content&per_page=100");
+
+        if ($response->ok()) {
+            $data = $response->object();
+
+            foreach ($data as $pro) {
+
+                $url = ((array)$pro->_embedded)['wp:featuredmedia'][0]->source_url;
+
+                $contents = file_get_contents($url);
+                $featured_image = substr($url, strrpos($url, '/') + 1);
+
+                $path = "blogs" . DIRECTORY_SEPARATOR . "featured" . DIRECTORY_SEPARATOR . $featured_image;
+                Storage::disk('public')->put($path, $contents, [
+                    'visibility' => 'public'
+                ]);
 
 
-      dispatch(function (){
-
-          $response = Http::get("https://amccopropertiesltd.co.ke/wp-json/wp/v2/event-updates?_embed&fields=id,title,content&per_page=100");
-
-          if ($response->ok())
-          {
-              $data  = $response->object();
-
-              foreach ($data as $pro) {
-
-                  $url = ((array)$pro->_embedded)['wp:featuredmedia'][0]->source_url;
-
-                  $contents = file_get_contents($url);
-                  $featured_image = substr($url, strrpos($url, '/') + 1);
-
-                  $path = "blogs". DIRECTORY_SEPARATOR. "featured". DIRECTORY_SEPARATOR . $featured_image;
-                  Storage::disk('public')->put($path,  $contents, [
-                      'visibility' => 'public'
-                  ]);
+                $projectData = [
+                    'title' => $pro->title->rendered,
+                    'is_published' => true,
+                    'body' => str($pro->content->rendered)->replace('<div>', '')
+                        ->replace('</div>', '')->toHtmlString(),
+                    'meta_title' => $pro->title->rendered,
+                    'meta_description' => str($pro->content->rendered)->stripTags()->limit('156')->value(),
+                    'featured_image' => $path,
+                    'type' => \App\Utils\Enums\BlogTypeEnum::UPDATES,
+                ];
 
 
-
-                  $projectData = [
-                      'title' => $pro->title->rendered,
-                      'is_published' => true,
-                      'body' => str($pro->content->rendered)->replace('<div>','')
-                          ->replace('</div>', '')->toHtmlString(),
-                      'meta_title' => $pro->title->rendered,
-                      'meta_description' => str($pro->content->rendered)->stripTags()->limit('156')->value(),
-                      'featured_image' =>$path,
-                      'type' => \App\Utils\Enums\BlogTypeEnum::UPDATES,
-                  ];
+                /** @var Blog $blog */
+                $blog = Blog::updateOrCreate([
+                    'title' => $pro->title->rendered,
+                ], $projectData);
 
 
+                $blog->link()->delete();
 
 
+                $blog->link()->create([
+                    'slug' => $pro->slug,
+                    'type' => \App\Utils\Enums\PermerlinkTypeEnums::POST,
+                ]);
+
+                $blog->setCreatedAt(\Carbon\Carbon::parse($pro->modified));
+
+                $blog->saveQuietly();
 
 
-                  /** @var Blog $blog */
-                  $blog = Blog::updateOrCreate([
-                      'title' => $pro->title->rendered,
-                  ], $projectData);
+                event(new BlogCreatedEvent($blog));
+
+            }
 
 
-                  $blog->link()->delete();
+        }
+        dump($response->json());
+
+    })->onQueue('properties');
 
 
+    dd('donw');
 
-                  $blog->link()->create([
-                      'slug' => $pro->slug,
-                      'type' => \App\Utils\Enums\PermerlinkTypeEnums::POST,
-                  ]);
-
-                  $blog->setCreatedAt(\Carbon\Carbon::parse($pro->modified));
-
-                  $blog->saveQuietly();
+    $blogs = Blog::query()->latest('id')->cursor();
 
 
-
-                  event(new BlogCreatedEvent($blog));
-
-              }
+    $yourApiKey = env('OPEN_AI_API_KEY');
 
 
+    foreach ($blogs as $blog) {
+        $client = OpenAI::client($yourApiKey);
 
-          }
-          dump($response->json());
+        $result = $client->completions()->create([
+            'model' => 'text-davinci-003',
+            'prompt' => 'correct errors and typos and the gramma without changing the wording' . $blog->body,
+        ]);
 
-      })->onQueue('properties');
-
-
-
-
-      dd('donw');
-
-      $blogs = Blog::query()->latest('id')->cursor();
+        $blog->body = $result['choices'][0]['text'];
 
 
-      $yourApiKey = env('OPEN_AI_API_KEY');
+        $blog->save();
 
 
-      foreach ($blogs as $blog) {
-          $client = OpenAI::client($yourApiKey);
-
-          $result = $client->completions()->create([
-              'model' => 'text-davinci-003',
-              'prompt' => 'correct errors and typos and the gramma without changing the wording'. $blog->body,
-          ]);
-
-          $blog->body = $result['choices'][0]['text'];
+    }
 
 
-          $blog->save();
-
-
-      }
-
-
-
-  });
+});
 Route::get('media', function (Request $request) {
 
 
     $page = $request->page ?? 1;
 
 
-      dispatch(function () use ( $page){
+    dispatch(function () use ($page) {
 
-          $response = Http::get("https://www.amccopropertiesltd.co.ke/wp-json/wp/v2/media/?_embed&per_page=100&page=$page");
-          if ($response->ok())
-          {
-              $data  = $response->object();
+        $response = Http::get("https://www.amccopropertiesltd.co.ke/wp-json/wp/v2/media/?_embed&per_page=100&page=$page");
+        if ($response->ok()) {
+            $data = $response->object();
 
-              foreach ($data as $pro) {
+            foreach ($data as $pro) {
 
-                  foreach ($pro->media_details->sizes as $index =>  $size)
-                  {
-                      $url =  $size->source_url;
+                foreach ($pro->media_details->sizes as $index => $size) {
+                    $url = $size->source_url;
 
-                      $contents = file_get_contents($url);
-                      //  $featured_image = substr($url, strrpos($url, '/') + 1);
+                    $contents = file_get_contents($url);
+                    //  $featured_image = substr($url, strrpos($url, '/') + 1);
 
-                      $path = "wp-content/".str($url)->explode("wp-content")[1];
-                      Storage::disk('wp')->put($path,  $contents, [
-                          'visibility' => 'public'
-                      ]);
-                  }
-              }
-              dd("done");
+                    $path = "wp-content/" . str($url)->explode("wp-content")[1];
+                    Storage::disk('wp')->put($path, $contents, [
+                        'visibility' => 'public'
+                    ]);
+                }
+            }
+            dd("done");
 
-          }
-          dump($response->json());
-      })->onQueue('properties');
+        }
+        dump($response->json());
+    })->onQueue('properties');
 
 
+    dd('donw');
+
+    $blogs = Blog::query()->latest('id')->cursor();
 
 
-      dd('donw');
-
-      $blogs = Blog::query()->latest('id')->cursor();
+    $yourApiKey = env('OPEN_AI_API_KEY');
 
 
-      $yourApiKey = env('OPEN_AI_API_KEY');
+    foreach ($blogs as $blog) {
+        $client = OpenAI::client($yourApiKey);
+
+        $result = $client->completions()->create([
+            'model' => 'text-davinci-003',
+            'prompt' => 'correct errors and typos and the gramma without changing the wording' . $blog->body,
+        ]);
+
+        $blog->body = $result['choices'][0]['text'];
 
 
-      foreach ($blogs as $blog) {
-          $client = OpenAI::client($yourApiKey);
-
-          $result = $client->completions()->create([
-              'model' => 'text-davinci-003',
-              'prompt' => 'correct errors and typos and the gramma without changing the wording'. $blog->body,
-          ]);
-
-          $blog->body = $result['choices'][0]['text'];
+        $blog->save();
 
 
-          $blog->save();
+    }
 
 
-      }
+});
 
 
+Route::get("/test", function () {
 
-  });
-
-
-
-Route::get("/test", function (){
-
-    dispatch(function (){
+    dispatch(function () {
 
         Blog::all()->each(function (Blog $blog) {
             return event(new BlogCreatedEvent($blog));
@@ -426,5 +384,6 @@ Route::get("/test", function (){
     });
 
 });
+
 
 Route::get('/v1/google-leads', fn() => GoogleAdsLeads::class);
