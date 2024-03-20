@@ -1,6 +1,7 @@
   <?php
 
 use App\Events\BlogCreatedEvent;
+  use App\Http\Controllers\API\GoogleAdsLeads;
   use Appsorigin\Blog\Models\Blog;
   use Appsorigin\Plots\Models\Project;
   use Appsorigin\Plots\Models\ProjectLocation;
@@ -425,3 +426,5 @@ Route::get("/test", function (){
     });
 
 });
+
+Route::get('/v1/google-leads', fn() => GoogleAdsLeads::class);
