@@ -73,7 +73,6 @@ class BlogResource extends Resource
                               ->required()
                               ->reactive()
                               ->helperText(fn($state) => " remaining Characters:" . 60 - str($state)->length())
-                              ->rule()
                               ->maxLength(60),
                           Forms\Components\TextInput::make('canonical')->url()
                               ->label("canonical URL")
