@@ -86,10 +86,14 @@ class BlogResource extends Resource
                               ->maxLength(160),
 
                       ]),
-                    Forms\Components\FileUpload::make('featured_image')
-                        ->disableLabel(true)
-                        ->required()
-                        ->preserveFilenames(),
+                    Forms\Components\Section::make('featured image')
+                    ->schema([
+
+                        Forms\Components\FileUpload::make('featured_image')
+                            ->disableLabel(true)
+                            ->required()
+                            ->preserveFilenames(),
+                    ]),
                 ])
                     ->columnSpan([
                         12,
