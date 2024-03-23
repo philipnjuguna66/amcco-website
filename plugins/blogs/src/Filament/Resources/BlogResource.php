@@ -73,6 +73,7 @@ class BlogResource extends Resource
                               ->required()
                               ->reactive()
                               ->helperText(fn($state) => " remaining Characters:" . 60 - str($state)->length())
+                              ->rule()
                               ->maxLength(60),
                           Forms\Components\TextInput::make('canonical')->url()
                               ->label("canonical URL")
@@ -85,14 +86,10 @@ class BlogResource extends Resource
                               ->maxLength(160),
 
                       ]),
-                    Forms\Components\Section::make('featured image')
-                    ->schema([
-
-                        Forms\Components\FileUpload::make('featured_image')
-                            ->disableLabel(true)
-                            ->required()
-                            ->preserveFilenames(),
-                    ]),
+                    Forms\Components\FileUpload::make('featured_image')
+                        ->disableLabel(true)
+                        ->required()
+                        ->preserveFilenames(),
                 ])
                     ->columnSpan([
                         12,

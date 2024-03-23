@@ -31,8 +31,9 @@
                 >
                 <article class="md:mt-12 max-w-7xl justify-center align-middle">
 
-                    {{ str($post?->body)->toHtmlString() }}
-
+                    {!! tiptap_converter()->asHTML($post->body) !!}
+                    {{--{{ str($post?->body)->toHtmlString() }}
+--}}
                 </article>
             </div>
             <div class="md:col-span-1 md:mx-2 hidden">
