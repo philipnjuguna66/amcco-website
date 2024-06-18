@@ -72,17 +72,14 @@ class BlogResource extends Resource
                           Forms\Components\TextInput::make('meta_title')
                               ->required()
                               ->reactive()
-                              ->helperText(fn($state) => " remaining Characters:" . 60 - str($state)->length())
-                              ->maxLength(60),
+                              ->helperText(fn($state) => " remaining Characters:" . 60 - str($state)->length()),
                           Forms\Components\TextInput::make('canonical')->url()
                               ->label("canonical URL")
-                              ->nullable()
-                              ->maxLength(153),
+                              ->nullable(),
                           Forms\Components\Textarea::make('meta_description')
                               ->required()
                               ->reactive()
-                              ->helperText(fn($state) => " remaining Characters:" . 160 - str($state)->length())
-                              ->maxLength(160),
+                              ->helperText(fn($state) => " remaining Characters:" . 160 - str($state)->length()),
 
                       ]),
                     Forms\Components\Section::make('featured image')
