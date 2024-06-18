@@ -23,7 +23,7 @@
         @livewireStyles
         {!! app(\App\Settings\ScriptSettings::class)?->header !!}
     </head>
-    <body class="h-full bg-white">
+    <body class="h-full bg-gray-50/60">
     {!! app(\App\Settings\ScriptSettings::class)?->body !!}
 
     @include('layouts.partials.navigation',['options' => $options])
