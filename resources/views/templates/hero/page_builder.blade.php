@@ -1,4 +1,4 @@
-<div class=" md:py-12 @if($section->extra['bg_white'] )   @endif">
+<div class=" md:py-12 @if($section->extra['bg_white'] )  bg-white  @endif">
     <div class="md:mx-auto md:w-4/5 max-w-7xl px-2 lg:px-8">
 
         <div class="mx-auto max-w-5xl text-center">
