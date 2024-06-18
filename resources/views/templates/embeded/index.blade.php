@@ -12,7 +12,7 @@
                     <article class="flex flex-col items-start justify-between shadow-md rounded-md">
                         <div class="relative w-full">
                             <iframe
-                                    class="aspect-[16/9] w-full  bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
+                                    class="aspect-[16/9] w-full  bg-white object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
                                     src="https://www.youtube.com/embed/cMO-sgr7GcY" title="Top Reason Why You Should Invest In Satellite Towns Around Nairobi - Kamulu" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                            <div class="absolute inset-0  ring-1 ring-inset ring-gray-900/10"></div>
                         </div>

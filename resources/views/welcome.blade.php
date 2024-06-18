@@ -21,10 +21,6 @@
             @endphp
 
 
-
-
-
-
             @include($section->type->sectionPath() ,['section' => $section ,'animationEffect' => $animationEffect])
         @endforeach
 

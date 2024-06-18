@@ -1,4 +1,4 @@
-<div class="py-24 sm:py-32 bg-gray-50">
+<div class="py-24 sm:py-32 bg-white">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto max-w-7xl sm:text-center">
 
@@ -14,7 +14,7 @@
 
 
                 @foreach($section->extra['sections'] as $index => $content)
-                    <div class="prose shadow-md rounded-md px-4 mt-5 bg-gray-100 py-8 border-b-4 border-primary-600 border-b-primary-600">
+                    <div class="prose shadow-md rounded-md px-4 mt-5 bg-white py-8 border-b-4 border-primary-600 border-b-primary-600">
 
                         {{ str($content['content'])->toHtmlString() }}
 
@@ -22,7 +22,7 @@
                 @endforeach
 
                 @if(isset($section->extra['has_contact_form']) && $section->extra['has_contact_form'])
-                    <div class="shadow-md rounded-md px-4 mt-5 bg-gray-100 py-8 border-b-4 border-primary-600 border-b-primary-600">
+                    <div class="shadow-md rounded-md px-4 mt-5 bg-white py-8 border-b-4 border-primary-600 border-b-primary-600">
                         <livewire:contact.book-site-visit/>
                     </div>
                 @endif
