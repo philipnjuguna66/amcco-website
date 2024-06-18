@@ -17,7 +17,7 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use Filament\Tables\Actions\ReplicateAction;
 use FilamentTiptapEditor\TiptapEditor;
-use JKHarley\FilamentTrumbowyg\Trumbowyg;
+
 
 class BlogResource extends Resource
 {
@@ -73,7 +73,7 @@ class BlogResource extends Resource
                               ->required()
                               ->reactive()
                               ->helperText(fn($state) => " remaining Characters:" . 60 - str($state)->length()),
-                          Forms\Components\TextInput::make('canonical')->url()
+                          Forms\Components\TextInput::make('canonical')
                               ->label("canonical URL")
                               ->nullable(),
                           Forms\Components\Textarea::make('meta_description')
