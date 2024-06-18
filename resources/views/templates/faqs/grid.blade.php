@@ -5,7 +5,7 @@
         @php $json = []; @endphp
 
         @foreach($section->extra['faqs'] as $faq)
-        <div @if($loop->first) x-data="{ open: true }" @else x-data="{ open: false }" @endif class=" bg-white rounded-lg  shadow-sm  md:shadow-md  shadow-charcoal-500/50 md:shadow-charcoal-500/50  ">
+        <div @if($loop->first) x-data="{ open: true }" @else x-data="{ open: false }" @endif class="  rounded-lg  shadow-sm  md:shadow-md  shadow-charcoal-500/50 md:shadow-charcoal-500/50  ">
 
             <div class="flex justify-between">
 

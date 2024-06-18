@@ -13,7 +13,7 @@
 
                         <dl class="mt-16 grid grid-cols-1 gap-4 overflow-hidden rounded-2xl text-center sm:grid-cols-2 lg:grid-cols-4">
                             @foreach($section->extra['counts'] as $stat)
-                                <div class="flex flex-col bg-white p-8 shadow-2xl shadow-white/50 rounded-md ">
+                                <div class="flex flex-col  p-8 shadow-2xl shadow-white/50 rounded-md ">
                                     <dt class="text-sm font-semibold leading-6 text-gray-900">{{ $stat['title'] }}</dt>
                                     <div class="flex justify-center items-center text-center">
                                         <dd

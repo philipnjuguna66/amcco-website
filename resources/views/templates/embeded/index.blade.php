@@ -1,4 +1,4 @@
-<section  class=" @if($section->extra['bg_white']  ) bg-white @endif">
+<section  class=" @if($section->extra['bg_white']  )  @endif">
     <div class=" py-24 sm:py-12 mx-auto md:w-4/5">
         <div {{ $animationEffect }}  class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="mx-auto max-w-2xl text-center">
@@ -12,7 +12,7 @@
                     <article class="flex flex-col items-start justify-between shadow-md rounded-md">
                         <div class="relative w-full">
                             <iframe
-                                    class="aspect-[16/9] w-full  bg-white object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
+                                    class="aspect-[16/9] w-full   object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
                                     src="https://www.youtube.com/embed/cMO-sgr7GcY" title="Top Reason Why You Should Invest In Satellite Towns Around Nairobi - Kamulu" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                            <div class="absolute inset-0  ring-1 ring-inset ring-gray-900/10"></div>
                         </div>

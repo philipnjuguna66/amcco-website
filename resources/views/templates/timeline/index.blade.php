@@ -1,4 +1,4 @@
-<div  class=" mt-0 @if(isset($section->extra['bg_white']) && $section->extra['bg_white']) bg-white @endif">
+<div  class=" mt-0 @if(isset($section->extra['bg_white']) && $section->extra['bg_white'])  @endif">
     @if($section->extra['type'] == "horizontal")
         @include('templates.timeline.horizontal')
     @endif

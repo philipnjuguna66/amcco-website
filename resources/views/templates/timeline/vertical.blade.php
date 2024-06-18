@@ -25,7 +25,7 @@
                             <div class="z-20 flex items-center order-1 bg-secondary-800 shadow-xl w-12 h-12 rounded-full">
                                 <h4 class="mx-auto text-white font-semibold text-lg">{{ $item['label'] }}</h4>
                             </div>
-                            <div class="order-1 bg-white rounded-lg shadow-sm  md:shadow-xl  shadow-gray-950 md:shadow-gray-500  md:w-5/12    px-6 py-4">
+                            <div class="order-1  rounded-lg shadow-sm  md:shadow-xl  shadow-gray-950 md:shadow-gray-500  md:w-5/12    px-6 py-4">
                                 <h3 class="mb-3 font-bold text-secondary-500 text-xl">
                                     {{ $item['title'] }}
                                 </h3>
@@ -33,7 +33,7 @@
                                 @if( isset($item['image']) && ! empty($item['image']))
                                     <div class="relative w-full">
                                         <img src="{{\Illuminate\Support\Facades\Storage::url($item['image']) }}" loading="lazy" alt="{{ $item['title'] }}"
-                                             class="aspect-[16/9] w-full  bg-white object-cover sm:aspect-[2/1] lg:aspect-[3/2]">
+                                             class="aspect-[16/9] w-full   object-cover sm:aspect-[2/1] lg:aspect-[3/2]">
                                         <div class="absolute inset-0  ring-1 ring-inset ring-gray-900/10"></div>
                                     </div>
                                 @endif

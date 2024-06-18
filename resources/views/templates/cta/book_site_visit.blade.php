@@ -1,4 +1,4 @@
-<section   class=" bg-white">
+<section   class=" ">
         <div class=" mx-auto md:w-4/5 relative isolate  py-12">
             <div  {{ $animationEffect }} class="mx-auto grid max-w-7xl grid-cols-1 md:grid-cols-2 gap-4">
                 <div class="relative px-6 pb-12 pt-12 sm:pt-12 lg:static lg:px-8 lg:py-12  ">
