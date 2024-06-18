@@ -17,7 +17,7 @@ module.exports = {
                 poppins: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
             colors: {
-                white: "rgb(255, 255, 255)",
+                white: "#ffffff",
                 primary: {
                     950 :  "#145359",
                     900 :  "#145359",
