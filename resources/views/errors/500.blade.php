@@ -3,9 +3,9 @@
 @section('description', "500")
    <div class="mx-auto py-3 mt-12 max-w-4xl">
        @if(str(url()->current())->contains(config('filament.path')))
-           <div class="text-2xl font-extrabold">
+           <h6 class="text-2xl font-extrabold">
                {{ str($exception->getMessage() ?? " ")->toHtmlString() }}
-           </div>
+           </h6>
 
        @else
            <h2 class="text-2xl font-extrabold">Something not right~ ! </h2>
